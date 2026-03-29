@@ -6,7 +6,7 @@ const KEY = import.meta.env.VITE_OWM_API_KEY
 export async function searchCity(query) {
     const response = await axios.get(`${URL}/geo/1.0/direct`, {
         params: {
-            q: query,
+            q: query+", London", // For strict London reinforcement as other countries have identical names
             limit: 3,
             appid: KEY,
         },
@@ -22,7 +22,6 @@ export async function searchCity(query) {
             country: result.country
         };
     })
-
     return locations
 }
 
