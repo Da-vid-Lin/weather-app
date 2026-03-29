@@ -24,12 +24,13 @@ export async function fetchCurrentWeather(lat, lon, units = 'metric') {
         temp: data.main.temp,
         windSpeed: data.wind.speed,
         windDeg: data.wind.deg,
-        windGust: data.wind.gust,
+        windGust: data.wind.gust ?? 0,
         description: data.weather[0].description,
         condition: data.weather[0].main,
         humidity: data.main.humidity,
         visibility: data.visibility,
         precipitation: precipitation,
+        pressure: data.main.pressure,
     }
 }
 
