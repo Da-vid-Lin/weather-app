@@ -1,0 +1,22 @@
+>>> settingsActions.js <<<
+- Allows us to run e.g. setUnits(dispatch, 'imperial')
+- Instead of having to write dispatch({type: 'SET_UNITS',payload: 'imperial'})
+
+
+>>> settingsContext.jsx <<<
+- Creates a global shared storage for all the settings to be put inside
+- Allows different components to use it via writing 
+- import { useSettings } from './contexts/settings/SettingsContext'
+- const { state, dispatch } = useSettings()
+
+
+>>> settingsReducer.js <<<
+- Has the default settings off the website 
+- Stores constants of actions inside a dictionary so we can see all settings at a glance
+- Changes the state of a setting 
+
+
+>>> To Add More Settings <<<
+1. Add the new setting inside the dictionary "SETTINGS"
+2. Add a new if statement for when "action.type" is the new setting 
+3. Inside settingsAction.js add an export function to more easily change the state 
