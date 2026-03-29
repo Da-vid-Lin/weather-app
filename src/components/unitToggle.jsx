@@ -1,6 +1,6 @@
 // Button for switching between metric and sped units 
 
-import { useSettings } from '../contexts/SettingsContext'
+import { useSettings } from '../contexts/settingsContext'
 import { setUnits } from '../contexts/settings/settingsActions'
 
 export default function UnitToggle() {
