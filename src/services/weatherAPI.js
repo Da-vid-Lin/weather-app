@@ -15,6 +15,11 @@ export async function fetchCurrentWeather(lat, lon, units = 'metric') {
 
     const data = response.data
 
+    var precipitation = Math.max(
+        data.rain?.['1h'] ?? 0,
+        data.snow?.['1h'] ?? 0
+    )
+
     return {
         temp: data.main.temp,
         windSpeed: data.wind.speed,
@@ -23,6 +28,7 @@ export async function fetchCurrentWeather(lat, lon, units = 'metric') {
         condition: data.weather[0].main,
         humidity: data.main.humidity,
         visibility: data.visibility,
+        precipitation: precipitation,
     }
 }
 
