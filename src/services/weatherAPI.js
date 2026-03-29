@@ -24,6 +24,7 @@ export async function fetchCurrentWeather(lat, lon, units = 'metric') {
         temp: data.main.temp,
         windSpeed: data.wind.speed,
         windDeg: data.wind.deg,
+        windGust: data.wind.gust,
         description: data.weather[0].description,
         condition: data.weather[0].main,
         humidity: data.main.humidity,
@@ -100,7 +101,10 @@ export async function fetchAirQuality(lat, lon) {
     const aqiLabel = aqiLabels[aqi - 1]
 
     return {
-        aqi,
-        aqiLabel,
+        aqi: aqi,
+        aqiLabel: aqiLabel,
+        pm2_5: firstResult.components.pm2_5,
+        no2: firstResult.components.no2,
+        o3: firstResult.components.o3,
     }
 }
