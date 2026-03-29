@@ -1,0 +1,49 @@
+//Current Weather API Call Data Example
+//https://api.openweathermap.org/data/2.5/weather?lat=51.5073219&lon=-0.1276474&units=metric&appid={KEY}
+
+{
+  "coord": {
+    "lon": -0.1276,
+    "lat": 51.5073
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 3.9,
+    "feels_like": 2.92,
+    "temp_min": 1.96,
+    "temp_max": 4.51,
+    "pressure": 1030,
+    "humidity": 77,
+    "sea_level": 1030,
+    "grnd_level": 1027
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 1.34,
+    "deg": 324,
+    "gust": 2.68
+  },
+  "clouds": {
+    "all": 6
+  },
+  "dt": 1774754426,
+  "sys": {
+    "type": 2,
+    "id": 2075535,
+    "country": "GB",
+    "sunrise": 1774762978,
+    "sunset": 1774808846
+  },
+  "timezone": 3600,
+  "id": 2643743,
+  "name": "London",
+  "cod": 200
+}
