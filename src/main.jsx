@@ -4,7 +4,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import SearchLocation from './components/SearchWeather.jsx'
 
 const img = new Image()
 img.src = '/Salter.png'
@@ -15,7 +14,6 @@ img.onload = () => {
 			<SettingsProvider>
 				<WeatherProvider>
 					<App />
-					<SearchLocation />
 				</WeatherProvider>
 			</SettingsProvider>
 		</StrictMode>,
