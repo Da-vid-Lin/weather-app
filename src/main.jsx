@@ -1,4 +1,5 @@
 import { SettingsProvider } from './contexts/settingsContext.jsx'
+import { WeatherProvider } from './contexts/weatherContext.jsx'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -11,7 +12,9 @@ img.onload = () => {
 	createRoot(document.getElementById('root')).render(
 		<StrictMode>
 			<SettingsProvider>
-				<App />
+				<WeatherProvider>
+					<App />
+				</WeatherProvider>
 			</SettingsProvider>
 		</StrictMode>,
 	)
