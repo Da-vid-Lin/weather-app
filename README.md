@@ -1,8 +1,8 @@
-# DING DING DING 
-MASHUUU WHERE ARE YOUUUU
+# Useful information
+- install ESLint extention on VSCode to see bug warnings (otherwise `eslint.config.js` + running `npx eslint src/` to see them)
 
 # Project File Structure
-| File              | What Is It Idk               |
+| File              | What It Is Idk               |
 |-------------------|------------------------------|
 | `App.jsx`         | Root Component               |
 | `main.jsx`        | React Entry Point            |
@@ -20,3 +20,8 @@ MASHUUU WHERE ARE YOUUUU
 | `src/services`    | APIs                         |
 | `src/styles`      | CSS From Claude Chan         |
 | `src/utils`       | Helper Methods & Constants   |
+
+# Shit Being Imported 
+| Library           | What It Is Idk               |
+|-------------------|------------------------------|
+| `axios`           | Handles Api Calls            |
