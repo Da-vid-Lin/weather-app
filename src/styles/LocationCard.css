@@ -45,6 +45,13 @@
     gap: 0;
 }
 
+.stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+}
 
 /* ─── Hero Temperature ───────────────────────────────────── */
 
