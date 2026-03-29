@@ -1,9 +1,9 @@
 // Card that displays a locations weather information
-import '../styles/LocationCard.css'
-import WOverviewCard from './WOverviewCard'
-import WStatsCard from './WStatsCard'
-import WindCard from './WindCard'
-import AirQualityCard from './AirQualityCard'
+import '../styles/locationCard.css'
+import WOverviewCard from './Cards/WOverviewCard'
+import WStatsCard from './Cards/WStatsCard'
+import WindCard from './Cards/WindCard'
+import AirQualityCard from './Cards/AirQualityCard'
 
 export default function LocationCard({ weatherData, weatherQuality, locationName }) {
     if (!weatherData || !weatherQuality || !locationName) {

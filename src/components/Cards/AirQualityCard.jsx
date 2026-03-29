@@ -1,7 +1,7 @@
 // Displays the air quality info about the location given
 
-import { useSettings } from '../contexts/settingsContext'
-import '../styles/DetailedCard.css'
+import { useSettings } from '../../contexts/settingsContext'
+import '../../styles/detailedCard.css'
 
 export default function AirQualityCard({weatherQuality}) {
     const { state } = useSettings()

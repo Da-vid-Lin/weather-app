@@ -1,8 +1,8 @@
 // Displays the wind direction information about the location given
 
-import { useSettings } from '../contexts/settingsContext'
-import { getWindDirection } from '../utils/windDirection'
-import '../styles/DetailedCard.css'
+import { useSettings } from '../../contexts/settingsContext'
+import { getWindDirection } from '../../utils/windDirection'
+import '../../styles/detailedCard.css'
 
 export default function WindCard({weatherData}) {
     const { state } = useSettings()

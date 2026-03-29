@@ -1,5 +1,5 @@
 // Displays the overview information about the location given
-import { getWindDirection } from '../utils/windDirection'
+import { getWindDirection } from '../../utils/windDirection'
 
 export default function WOverviewCard({weatherData, locationName}) {
     const windDirection = getWindDirection(weatherData.windDeg)
