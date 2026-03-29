@@ -1,4 +1,4 @@
-import { SettingsProvider } from './contexts/SettingsContext.jsx'
+import { SettingsProvider } from './contexts/settingsContext.jsx'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
