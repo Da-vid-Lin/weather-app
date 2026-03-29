@@ -14,8 +14,8 @@
 | `src/`            | Main React App Code          |
 | `src/assets`      | Images & Icons               |
 | `src/components`  | Reusable UI Components       |
-| `src/contexts`    | React Contexts               |
-| `src/hooks`       | Reusable Hooks               |
+| `src/contexts`    | Reusable Information         |
+| `src/hooks`       | Reusable Logic               |
 | `src/pages`       | Different Pages Of Code      |
 | `src/services`    | APIs                         |
 | `src/styles`      | CSS From Claude Chan         |
