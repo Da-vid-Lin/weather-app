@@ -4,6 +4,8 @@ import WOverviewCard from './Cards/WOverviewCard'
 import WStatsCard from './Cards/WStatsCard'
 import WindCard from './Cards/WindCard'
 import AirQualityCard from './Cards/AirQualityCard'
+import CyclingAdvice from './Cards/CyclingAdviceCard'
+import GearSuggestCard from './Cards/GearSuggestCard'
 
 export default function LocationCard({ weatherData, weatherQuality, locationName }) {
     if (!weatherData || !weatherQuality || !locationName) {
@@ -16,6 +18,8 @@ export default function LocationCard({ weatherData, weatherQuality, locationName
 
             <div className="location-overlay">
                 <WOverviewCard weatherData={weatherData} locationName={locationName} />
+                <CyclingAdvice weatherData={weatherData} weatherQuality={weatherQuality}/>
+                <GearSuggestCard weatherData={weatherData}/>
                 <WStatsCard weatherData={weatherData} />
                 <div className="stats-row">
                     <WindCard weatherData={weatherData} />

@@ -1,10 +1,10 @@
-// Rates how favourable weather condition are for cyclists
+// Rates how favourable weatherData condition are for cyclists
 // e.g. 0-50 higher score = higher risk
 // scoring: wind range from 0-12, rain range from 0-12, visibility 0-12, temparature 0-10,  pollution 0-4
 // rating 0-10Perfect cycling conditions,11-20 decent cycling conditions, 
 // 21-30bad cycling conditions, 31-40hazardous cycling conditions, 41-50 Not recommended cycling
 
-export function getCyclingScore(weather,airQuality){
+export function getCyclingScore(weatherData,airQuality){
     let windscore = 0
     let rainscore = 0
     let visibilityscore = 0
@@ -12,53 +12,53 @@ export function getCyclingScore(weather,airQuality){
     let tempscore = 0
     let total = 0
     
-    // weather condition scoring
-    if (weather.condition === 'Thunderstorm' || weather.condition === 'Ash' || weather.condition === 'Tornado' || weather.condition === 'Squall'){
+    // weatherData condition scoring
+    if (weatherData.condition === 'Thunderstorm' || weatherData.condition === 'Ash' || weatherData.condition === 'Tornado' || weatherData.condition === 'Squall'){
         return 'Not recommended cycling'
     }
-    if(weather.condition === 'Snow' || weather.condition === 'Fog' || weather.condition === 'Smoke' || weather.condition === 'Haze'){
+    if(weatherData.condition === 'Snow' || weatherData.condition === 'Fog' || weatherData.condition === 'Smoke' || weatherData.condition === 'Haze'){
         return 'Hazardous cycling conditions'
     }
 
     // drizzle and rain + precipitation for rainscore 
-    if(weather.condition === 'Rain' && weather.precipitation < 2){
+    if(weatherData.condition === 'Rain' && weatherData.precipitation < 2){
         rainscore += 5
     }
-    if(weather.condition === 'Rain' && weather.precipitation >= 2 && weather.precipitation <= 5){
+    if(weatherData.condition === 'Rain' && weatherData.precipitation >= 2 && weatherData.precipitation <= 5){
         rainscore += 8
     }
-    if(weather.condition === 'Rain' && weather.precipitation > 5){
+    if(weatherData.condition === 'Rain' && weatherData.precipitation > 5){
         rainscore += 12
     }
-    if(weather.condition === 'Drizzle'){
+    if(weatherData.condition === 'Drizzle'){
         rainscore += 3
     }
 
     // windspeed scoring
-    if(weather.windSpeed < 10){
+    if(weatherData.windSpeed < 10){
         windscore = 0
     }
-    if(weather.windSpeed >= 10 && weather.windSpeed <= 20){
+    if(weatherData.windSpeed >= 10 && weatherData.windSpeed <= 20){
         windscore += 4
     }
-    if(weather.windSpeed > 20 && weather.windSpeed <= 30){
+    if(weatherData.windSpeed > 20 && weatherData.windSpeed <= 30){
         windscore += 8
     }
-    if(weather.windSpeed > 30){
+    if(weatherData.windSpeed > 30){
         windscore += 12
     }
 
     // visibility scoring
-    if(weather.visibility >=  5000){
+    if(weatherData.visibility >=  5000){
         visibilityscore += 0
     }
-    if(weather.visibility < 5000 && weather.visibility >= 2000){
+    if(weatherData.visibility < 5000 && weatherData.visibility >= 2000){
         visibilityscore += 4
     }
-    if(weather.visibility < 2000 && weather.visibility >= 1000){
+    if(weatherData.visibility < 2000 && weatherData.visibility >= 1000){
         visibilityscore += 8
     }
-    if(weather.visibility < 1000){
+    if(weatherData.visibility < 1000){
         visibilityscore += 12
     }
 
@@ -77,37 +77,38 @@ export function getCyclingScore(weather,airQuality){
     }
 
     // temp scoring
-    if(weather.temp > 27){
+    if(weatherData.temp > 27){
         tempscore += 7
     }
-    if(weather.temp <= 27 && weather.temp >= 15){
+    if(weatherData.temp <= 27 && weatherData.temp >= 15){
         tempscore = 0
     }
-    if(weather.temp < 15 && weather.temp >= 5){
+    if(weatherData.temp < 15 && weatherData.temp >= 5){
         tempscore += 3
     }
-    if(weather.temp < 5 && weather.temp >= 0){
+    if(weatherData.temp < 5 && weatherData.temp >= 0){
         tempscore += 7
     }
-    if(weather.temp < 0){
+    if(weatherData.temp < 0){
         tempscore += 10
     }
 
     total += windscore+rainscore+visibilityscore+pollutionscore+tempscore
+    total *= 2
 
-    if(total >= 0 && total <= 10){
-        return 'Perfect cycling conditions'
+    if(total >= 0 && total <= 20){
+        return ['Perfect cycling conditions', total]
     }
-    if(total >= 11 && total <= 20){
-        return 'Decent cycling conditions'
+    if(total >= 21 && total <= 40){
+        return ['Decent cycling conditions', total]
     }
-    if(total >= 21 && total <= 30){
-        return 'Bad cycling conditions'
+    if(total >= 41 && total <= 60){
+        return ['Bad cycling conditions', total]
     }
-    if(total >= 31 && total <= 40){
-        return 'Hazardous cycling conditions'
+    if(total >= 61 && total <= 80){
+        return ['Hazardous cycling conditions', total]
     }
-    if(total >= 41){
-        return 'Not recommended cycling'
+    if(total >= 81){
+        return ['Not recommended cycling', total]
     }
 }
