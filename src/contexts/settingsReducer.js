@@ -27,11 +27,11 @@ export function settingsReducer(state, action) {
     } 
 
     else if (action.type === SETTINGS.SET_DEPTH) {
-        return {...state, view: action.payload}
+        return {...state, depth: action.payload}
     } 
 
     else if (action.type === SETTINGS.SET_HOME) {
-        return {...state, view: action.payload}
+        return {...state, home: action.payload}
     } 
 
     else {
