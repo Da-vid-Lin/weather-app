@@ -7,7 +7,7 @@ export async function searchCity(query) {
     const response = await axios.get(`${URL}/geo/1.0/direct`, {
         params: {
             q: query+", London", // For strict London reinforcement as other countries have identical names
-            limit: 3,
+            limit: 5,
             appid: KEY,
         },
     })
