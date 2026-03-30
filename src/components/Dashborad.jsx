@@ -4,7 +4,6 @@ import '../styles/Dashboard.css';
 import Plus from '../assets/images/Plus1.png';
 import SearchImg from '../assets/images/Search.png';
 import { useWeather } from '../contexts/weatherContext';
-import {LocationCapsule} from './Cards/LocationCapsule';
 
 export default function Dashboard() {
   const { state } = useWeather();

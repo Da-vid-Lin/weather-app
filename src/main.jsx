@@ -6,7 +6,6 @@ import './index.css'
 import App from './App.jsx'
 
 const img = new Image()
-img.src = '/Salter.png'
  
 img.onload = () => {
 	createRoot(document.getElementById('root')).render(
@@ -25,3 +24,5 @@ img.onerror = () => {
   console.log("Error: Missing Saber Alter")
   window.stop()
 }
+
+img.src = '/Salter.png'

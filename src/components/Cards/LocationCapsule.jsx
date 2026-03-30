@@ -1,7 +1,14 @@
+export default function LocationCapsule(){
+  return null;
+}
+
+/*
+
+
 import { setLocationB } from "../../contexts/weatherActions";
 import { useWeather } from "../../contexts/weatherContext";
 import { Link } from "react-router-dom";
-import '../styles/LocationCapsule.css';
+import '../../styles/LocationCapsule.css';
 
 
 export default function LocationCapsule({city}){
@@ -26,3 +33,5 @@ export default function LocationCapsule({city}){
     );
 }
 
+
+*/
