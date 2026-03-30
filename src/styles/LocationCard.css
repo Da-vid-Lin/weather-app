@@ -205,3 +205,11 @@
 .location-overlay > *:nth-child(4) { animation-delay: 0.20s; }
 .location-overlay > *:nth-child(5) { animation-delay: 0.25s; }
 .location-overlay > *:nth-child(6) { animation-delay: 0.30s; }
+
+/* ─── Rating Icon ───────────────────────────────────────── */
+
+.cycling-image {
+    width: 2rem;       
+    height: 2rem;        
+    object-fit: contain;
+}
