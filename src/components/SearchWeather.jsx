@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { searchCity } from '../services/geocodingAPI';
 import { useWeather } from '../contexts/weatherContext';
@@ -24,36 +24,41 @@ export default function SearchWeather() {
     );
   };
 
-  // Triggered when the user hits Enter or clicks the search icon
-  const search = async (e) => {
-    e.preventDefault(); 
 
-    const queryTrimmed = query.trim();
+  useEffect(() => {
+    if (query.length == 0 || !query) return;
 
+    const search = async () => {
 
-    if (queryTrimmed.length >= 2) {
-      
+      const queryTrimmed = query.trim();
 
-      const allResults = await searchCity(queryTrimmed);
-      const londonResults = allResults.filter(loc => isInLondon(loc.lat, loc.lon));
-      
-      // Eliminate any duplicates
-      const uniqueLocations = [];
-      const seenNames = new Set(); 
+      if (queryTrimmed.length >= 2) {
+        const allResults = await searchCity(queryTrimmed);
+        const londonResults = allResults.filter(loc => isInLondon(loc.lat, loc.lon));
+        
+        
+        const uniqueLocations = [];
+        const seenNames = new Set();
 
-      for (const location of londonResults) {
-        if (!seenNames.has(location.name)) {
-          seenNames.add(location.name); 
-          uniqueLocations.push(location); 
+        for (const location of londonResults) {
+          if (!seenNames.has(location.name)) {
+            seenNames.add(location.name); 
+            uniqueLocations.push(location); 
+          }
         }
+
+        setResults(uniqueLocations);
+
+      } else {
+        setResults([]); 
       }
+    };
 
-      setResults(uniqueLocations);
+  search();
 
-    } else {
-      setResults([]); 
-    }
-  };
+  
+  }, [query]);
+
 
 
 
@@ -67,14 +72,13 @@ export default function SearchWeather() {
         </div>
 
 
-        <form className="search-input-wrapper" onSubmit={search}>
+        <form className="search-input-wrapper" onSubmit={(e) => e.preventDefault()}>
           <input 
             type="text" 
             placeholder="Search..." 
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
-              // Clear results if the user deletes their query
               if (e.target.value === '') setResults([]);
             }}
             autoFocus

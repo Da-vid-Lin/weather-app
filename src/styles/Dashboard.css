@@ -94,6 +94,10 @@
 
 .card-text {
   font-size: 15px;
+  flex: 1;             /* fills remaining space in the capsule */
+  text-decoration: none;
+  color: #ffffff;
+  text-align: left;
 }
 
 /* Weather Card Specifics */

@@ -11,36 +11,33 @@ export default function Dashboard() {
   return (
     <div className="app-wrapper">
       <div className="mobile-container">
-        
 
         <button className="search-button">
           <img src={SearchImg} alt="Search" />
         </button>
 
-
         <div className="list-section">
           <h2 className="section-title">Home</h2>
-          <Link to="/search/home" className="action-card">
-            <div className="icon-circle">
-              <img src={Plus} alt="Add Home" />
-            </div>
-            <span className="card-text">
+          <div className="action-card">
+            <Link to="/search/home" className="icon-circle">
+              <img src={Plus} alt="Set Home" />
+            </Link>
+            <Link to="/weather" className="card-text">
               {state.locationA || 'Select a Location'}
-            </span>
-          </Link>
+            </Link>
+          </div>
         </div>
-
 
         <div className="list-section">
           <h2 className="section-title">Destination</h2>
-          <Link to="/search/dest" className="action-card">
-            <div className="icon-circle">
-              <img src={Plus} alt="Add Destination" />
-            </div>
-            <span className="card-text">
+          <div className="action-card">
+            <Link to="/search/dest" className="icon-circle">
+              <img src={Plus} alt="Set Destination" />
+            </Link>
+            <Link to="/weather" className="card-text">
               {state.locationB || 'Select a Location'}
-            </span>
-          </Link>
+            </Link>
+          </div>
         </div>
 
       </div>
