@@ -4,6 +4,7 @@ import '../styles/Dashboard.css';
 import Plus from '../assets/images/Plus1.png';
 import SearchImg from '../assets/images/Search.png';
 import { useWeather } from '../contexts/weatherContext';
+import LocationCapsule from './Cards/LocationCapsule';
 
 export default function Dashboard() {
   const { state } = useWeather();
@@ -36,16 +37,15 @@ export default function Dashboard() {
         </div>
 
         {
-        /*
+
         
         <div className='recents'>
           <h2 className="section-title">Recent Searches</h2>
-          <LocationCapsule city1/>
-          <LocationCapsule city2/>
-          <LocationCapsule city3/>
+          <LocationCapsule city="Stratford"/>
+          <LocationCapsule city="Bow"/>
+          <LocationCapsule city="Bromley"/>
         </div>
         
-        */
         }
 
       </div>
