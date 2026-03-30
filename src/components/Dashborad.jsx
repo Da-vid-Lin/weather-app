@@ -11,11 +11,6 @@ export default function Dashboard() {
   return (
     <div className="app-wrapper">
       <div className="mobile-container">
-
-        <button className="search-button">
-          <img src={SearchImg} alt="Search" />
-        </button>
-
         <div className="list-section">
           <h2 className="section-title">Home</h2>
           <div className="action-card">
