@@ -31,3 +31,30 @@ export function setHome(dispatch, home) {
         payload: home 
     })
 }
+
+export function setRecentDestinations(dispatch, newDestination, recentDestinations){
+    if (recentDestinations.includes(newDestination)){
+        const dupIndex = recentDestinations.indexOf(newDestination)
+        recentDestinations.splice(dupIndex, 1)
+        recentDestinations.unshift(newDestination)
+        dispatch({
+        type: SETTINGS.SET_RECENT_DESTINATIONS,
+        payload: recentDestinations
+        })
+        return
+    }
+
+    if (recentDestinations.length === 3){
+        recentDestinations.pop()
+        recentDestinations.unshift(newDestination)
+    }else{
+        recentDestinations.unshift(newDestination)
+    }
+
+    dispatch({
+        type: SETTINGS.SET_RECENT_DESTINATIONS,
+        payload: recentDestinations
+    })
+
+
+}

@@ -4,7 +4,7 @@ export const initialState = {
     view: 'dark',
     depth: 'basic',
     home: null,
-    destinations: []
+    recentDestinations: []
 }
 
 // Stores all the actions inside a dictionary so that it's 
@@ -15,7 +15,7 @@ export const SETTINGS = {
     SET_VIEW: 'SET_VIEW',
     SET_DEPTH: 'SET_DEPTH',
     SET_HOME: 'SET_HOME',
-    SET_DESTINATIONS: 'SET_DESTINATIONS'
+    SET_RECENT_DESTINATIONS: 'SET_RECENT_DESTINATIONS'
 }
 
 // Allows us to change the state of a setting
@@ -36,8 +36,8 @@ export function settingsReducer(state, action) {
         return {...state, home: action.payload}
     }
 
-    else if (action.type === SETTINGS.SET_DESTINATIONS) {
-        return {...state, destinations: action.payload}
+    else if (action.type === SETTINGS.SET_RECENT_DESTINATIONS) {
+        return {...state, recentDestinations: action.payload}
     }
 
     else {
