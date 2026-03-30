@@ -5,7 +5,7 @@ import perfectBikeImg from '../../assets/ratingIcons/star.png';
 import decentBikeImg from '../../assets/ratingIcons/thumbs-up.png';
 import badBikeImg from '../../assets/ratingIcons/sad-face.png';
 import hazardBikeImg from '../../assets/images/Warning.png';
-import stopBikeImg from '../../assets/ratingIcons/no-bike.jpg';
+import stopBikeImg from '../../assets/ratingIcons/no-bike.png';
 
 const adviceImages = {
   'Perfect cycling conditions': perfectBikeImg,
