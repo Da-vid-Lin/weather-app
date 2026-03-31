@@ -7,6 +7,7 @@ import { fetchHourlyForecast } from '../services/weatherApi'
 import { fetchDailyForecast } from '../services/weatherApi'
 import { useGeoLocation } from '../hooks/useGeoLocation'
 import WeatherCard from '../components/WeatherCard'
+import { Navigate } from 'react-router-dom'
 
 export default function WeatherPage() {
     const { state, dispatch } = useWeather()
@@ -49,6 +50,11 @@ export default function WeatherPage() {
 
         loadWeather()
     }, [state.locationB])
+
+    // If location B not selected send user back to select
+    if (!state.locationB){
+        return <Navigate to="/select" replace/> // Replace does not register /weather as a browser entry
+    }
 
     // Displaying the weather information
     return (

@@ -2,9 +2,18 @@
 
 import { Link, useLocation } from 'react-router-dom'
 import '../styles/navigationBar.css'
+import { useWeather } from '../contexts/weatherContext'
 
 export default function NavBar() {
+
     const location = useLocation()
+    const { state } = useWeather()
+
+    // Dont let user move onto weather without a destination Location
+    let weatherEndpoint = "/weather"
+    if (!state.locationB){
+        weatherEndpoint = "/select"
+    }
 
     return (
         <nav className="navbar">
@@ -12,7 +21,7 @@ export default function NavBar() {
                 <span className="nav-icon">📍</span>
                 <span className="nav-label">Select</span>
             </Link>
-            <Link to="/weather" className={`nav-item ${location.pathname === '/weather' ? 'nav-active' : ''}`}>
+            <Link to={weatherEndpoint} className={`nav-item ${location.pathname === '/weather' ? 'nav-active' : ''}`}>
                 <span className="nav-icon">🌤️</span>
                 <span className="nav-label">Weather</span>
             </Link>
