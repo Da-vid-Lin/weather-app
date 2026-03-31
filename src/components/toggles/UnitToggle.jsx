@@ -10,10 +10,10 @@ export default function UnitToggle() {
     let nextUnit = ''
 
     if (state.units === 'metric') {
-        displayText = '°C'
+        displayText = '°C & km/h'
         nextUnit = 'imperial'
     } else if (state.units === 'imperial') {
-        displayText = '°F'
+        displayText = '°F & mph'
         nextUnit = 'metric'
     }
 
