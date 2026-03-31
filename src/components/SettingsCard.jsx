@@ -2,7 +2,7 @@ import { useSettings } from '../contexts/settingsContext';
 import  UnitToggle  from './toggles/UnitToggle'
 import  DepthToggle  from './toggles/DepthToggle'
 import  ViewToggle  from './toggles/ViewToggle'
-import '../styles/Settings.css'
+import '../styles/settings.css'
 
 export default function SettingsCard() {
     const { state, dispatch } = useSettings();

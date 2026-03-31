@@ -15,7 +15,7 @@
 .location-card-bg {
     position: absolute;
     inset: 0;
-    background-image: url('/src/assets/background/HomeBG.png');
+    background-color: #242222;
     background-size: cover;
     background-position: center top;
     z-index: 0;
@@ -78,11 +78,11 @@
 /* ─── Location Pin ───────────────────────────────────────── */
 
 .weather-location {
-    display: flex;
-    align-items: center;
+    display: block;
+    text-align: center;
     gap: 5px;
     margin: 10px 0 0;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
     letter-spacing: 0.5px;
@@ -90,7 +90,7 @@
 
 .weather-location::before {
     content: '📍';
-    font-size: 12px;
+    font-size: 18px;
 }
 
 
@@ -128,6 +128,7 @@
 .weather-wind::before {
     content: '🌬️';
     font-size: 18px;
+    text-align: center;
 }
 
 
@@ -216,48 +217,66 @@
 
 /* ─── Daily Forecasts scrollable ─────────────────────────────────────────── */
 
-/* 1. The Main Wrapper (Glass completely removed!) */
-.daily-forecast {
-  margin: 1.5rem 0;
+/* The Main Wrapper */
+.daily-forecast, .hourly-forecast {
+  margin: 1rem 0; 
   width: 100%;
   box-sizing: border-box;
 }
 
-/* 2. The Scrolling Row */
-.daily-forecast > div {
+/* The Scrolling Row */
+.daily-forecast > div, .hourly-forecast > div {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 0.75rem; 
   overflow-x: auto;
   scroll-behavior: smooth;
+  padding: 0.25rem; 
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
 }
 
-/* 3. The Individual Day Column (Still has the glass effect) */
-.daily-forecast > div > * {
+/* The Individual Day Column */
+.daily-forecast > div > *, .hourly-forecast > div > * {
   flex: 0 0 auto;
-  min-width: 6rem; 
+  width: 4rem; 
   display: flex;
   flex-direction: column; 
   align-items: center;  
-  gap: 0.5rem; 
-  
-  padding: 1rem 0.5rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.05); 
-  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  gap: 0.25rem; 
+  padding: 0.75rem 0.25rem;
+    background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
 }
 
-/* 4. Strip styles from the inner text elements */
-.daily-forecast > div > * > * {
+/* Strip styles from the inner text elements */
+.daily-forecast > div > * > *, .hourly-forecast > div > * > * {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
+  font-family: 'Outfit', sans-serif;
+  color: #ffffff !important; 
+  box-shadow: none !important; 
+  backdrop-filter: none !important; 
+  -webkit-backdrop-filter: none !important;
+  margin: 0 !important; 
 }
 
-/* 5. The Scrollbar Styling */
-.daily-forecast > div::-webkit-scrollbar {
+/* The Image Targeting */
+.daily-forecast > div > * > img, .hourly-forecast > div > * > img {
+  width: 2.5rem; 
+  height: 2.5rem; 
+  object-fit: contain;
+}
+
+/* The Scrollbar Styling */
+.daily-forecast > div::-webkit-scrollbar, .hourly-forecast > div::-webkit-scrollbar {
   height: 0.25rem; 
 }
-.daily-forecast > div::-webkit-scrollbar-thumb {
+.daily-forecast > div::-webkit-scrollbar-thumb, .hourly-forecast > div::-webkit-scrollbar {
   background: rgba(255, 255, 255, 0.2); 
+  border-radius: 10px;
 }

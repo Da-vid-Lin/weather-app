@@ -52,7 +52,6 @@ export async function fetchHourlyForecast(lat, lon, units = 'metric') {
             time: hour.dt,
             temp: hour.main.temp,
             icon: hour.weather[0].icon,
-            precipitation: hour.rain?.['1h'] ?? 0,
             chance: hour.pop,
         }
     })

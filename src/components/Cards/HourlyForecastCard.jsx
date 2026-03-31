@@ -5,10 +5,9 @@ export default function HourlyForecastCard({ hourlyData }){
             {hourlyData.map((hour) => (
                 <div key={hour.time}>
                     <p>{formatTime(hour.time)}</p>
-                    <p>{hour.temp}</p>
-                    <p>{hour.precipitation}</p>
-                    <p>{hour.chance}</p>
                     <img src={`https://openweathermap.org/img/wn/${hour.icon}.png`} />
+                    <p>{hour.temp.toFixed(0)}</p>
+                    <p>{hour.chance}</p>
                 </div>
                 
             ))}
