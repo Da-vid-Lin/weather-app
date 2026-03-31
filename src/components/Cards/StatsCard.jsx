@@ -1,6 +1,6 @@
 // Displays the detailed information about the location given
 
-export default function WStatsCard({weatherData}) {
+export default function StatsCard({weatherData}) {
     return (
         <div className="weather-stats">
             <div className="stat-tile">
