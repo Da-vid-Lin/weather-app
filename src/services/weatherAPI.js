@@ -53,7 +53,7 @@ export async function fetchHourlyForecast(lat, lon, units = 'metric') {
             temp: hour.main.temp,
             icon: hour.weather[0].icon,
             precipitation: hour.rain?.['1h'] ?? 0,
-            
+            chance: hour.pop,
         }
     })
 
@@ -74,11 +74,13 @@ export async function fetchDailyForecast(lat, lon, units = 'metric') {
     const data = response.data
 
     const daily = data.list.slice(0, 7).map(day => {
+        console.log(day.pop)
         return {
             date: day.dt,
             minTemp: day.temp.min,
             maxTemp: day.temp.max,
             icon: day.weather[0].icon,
+            chance: day.pop || 0,
             description: day.weather[0].description,
         }
     })
