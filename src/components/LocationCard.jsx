@@ -1,11 +1,10 @@
 // Card that displays a locations weather information
 import '../styles/locationCard.css'
-import WOverviewCard from './Cards/WOverviewCard'
-import WStatsCard from './Cards/WStatsCard'
+import OverviewCard from './Cards/OverviewCard'
+import StatsCard from './Cards/StatsCard'
 import WindCard from './Cards/WindCard'
 import AirQualityCard from './Cards/AirQualityCard'
 import CyclingAdvice from './Cards/CyclingAdviceCard'
-import GearSuggestCard from './Cards/GearSuggestCard'
 
 export default function LocationCard({ weatherData, weatherQuality, locationName }) {
     if (!weatherData || !weatherQuality || !locationName) {
@@ -17,10 +16,11 @@ export default function LocationCard({ weatherData, weatherQuality, locationName
             <div className="location-card-bg" />
 
             <div className="location-overlay">
-                <WOverviewCard weatherData={weatherData} locationName={locationName} />
+                <OverviewCard weatherData={weatherData} locationName={locationName} />
+                <span>---------------------------------------</span>
                 <CyclingAdvice weatherData={weatherData} weatherQuality={weatherQuality}/>
-                <GearSuggestCard weatherData={weatherData}/>
-                <WStatsCard weatherData={weatherData} />
+                <span>---------------------------------------</span>
+                <StatsCard weatherData={weatherData} />
                 <div className="stats-row">
                     <WindCard weatherData={weatherData} />
                     <AirQualityCard weatherQuality={weatherQuality} />
