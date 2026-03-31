@@ -41,7 +41,7 @@ export default function SelectLocation() {
           <div className='recents'>
             <h2 className="section-title">Recent Searches</h2>
             {settingsState.recentDestinations.map((city) => (
-              <LocationCapsule city={city} />
+              <LocationCapsule key={city} city={city} />
             ))}
           </div>
         )}
