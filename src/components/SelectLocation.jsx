@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Dashboard.css';
+import '../styles/selectLocation.css';
 import Plus from '../assets/images/Plus1.png';
-import SearchImg from '../assets/images/Search.png';
 import { useWeather } from '../contexts/weatherContext';
-import LocationCapsule from './Cards/LocationCapsule';
+import LocationCapsule from './LocationCapsule';
 import { useSettings } from '../contexts/settingsContext';
 
-export default function Dashboard() {
+export default function SelectLocation() {
   const { state } = useWeather();
   const { state: settingsState } = useSettings();
 

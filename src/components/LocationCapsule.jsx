@@ -1,8 +1,8 @@
-import { setLocationB } from "../../contexts/weatherActions";
-import { useWeather } from "../../contexts/weatherContext";
+import { setLocationB } from "../contexts/weatherActions";
+import { useWeather } from "../contexts/weatherContext";
 import { Link } from "react-router-dom";
-import '../../styles/Dashboard.css'; 
-import '../../styles/LocationCapsule.css';
+import '../styles/selectLocation.css'; 
+import '../styles/locationCapsule.css';
 
 export default function LocationCapsule({ city }) {
     const { dispatch } = useWeather();

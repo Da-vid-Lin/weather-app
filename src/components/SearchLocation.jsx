@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { searchCity } from '../services/geocodingAPI';
+import { searchCity } from '../services/geocodingApi';
 import { useWeather } from '../contexts/weatherContext';
 import { setLocationA, setLocationB } from '../contexts/weatherActions';
-import '../styles/SearchWeather.css';
+import '../styles/searchLocation.css';
 import { useSettings } from '../contexts/settingsContext';
 import { setRecentDestinations } from '../contexts/settingsActions';
 
-export default function SearchWeather() {
+export default function SearchLocation() {
   const { dispatch } = useWeather();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);

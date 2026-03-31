@@ -1,4 +1,4 @@
-import SearchLocation from '../components/SearchWeather.jsx'
+import SearchLocation from '../components/SearchLocation.jsx'
 
 export default function HomePage() {
     return (
