@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/selectLocation.css';
 import Plus from '../assets/images/Plus1.png';
 import { useWeather } from '../contexts/weatherContext';
@@ -8,32 +8,33 @@ import { useSettings } from '../contexts/settingsContext';
 
 export default function SelectLocation() {
 	const { state } = useWeather();
- 	const { state: settingsState } = useSettings();
+	const { state: settingsState } = useSettings();
+	const navigate = useNavigate();
 
 	return (
 		<div className="app-wrapper">
 			<div className="mobile-container">
 				<div className="list-section">
 					<h2 className="section-title">Home</h2>
-					<div className="action-card">
-						<Link to="/search/home" className="icon-circle">
+					<div className="action-card" onClick={() => navigate('/')}>
+						<Link to="/search/home" className="icon-circle" onClick={(e) => e.stopPropagation()}>
 							<img src={Plus} alt="Set Home" />
 						</Link>
-						<Link to="/" className="card-text">
+						<div className="card-text">
 							{settingsState.home || 'Select a Location'}
-						</Link>
+						</div>
 					</div>
 				</div>
 
 				<div className="list-section">
 					<h2 className="section-title">Destination</h2>
-					<div className="action-card">
-						<Link to="/search/dest" className="icon-circle">
+					<div className="action-card" onClick={() => navigate('/weather')}>
+						<Link to="/search/dest" className="icon-circle" onClick={(e) => e.stopPropagation()}>
 							<img src={Plus} alt="Set Destination" />
 						</Link>
-						<Link to="/weather" className="card-text">
+						<div className="card-text">
 							{state.locationB || 'Select a Location'}
-						</Link>
+						</div>
 					</div>
 				</div>
 
@@ -45,7 +46,6 @@ export default function SelectLocation() {
 						))}
 					</div>
 				)}
-
 			</div>
 		</div>
 	);
