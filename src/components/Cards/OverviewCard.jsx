@@ -1,16 +1,21 @@
 // Displays the overview information about the location given
 
+import { useSettings } from '../../contexts/settingsContext'
 import { getWindDirection } from '../../utils/windDirection'
 
 export default function OverviewCard({weatherData, locationName}) {
+    const { state } = useSettings()
     const windDirection = getWindDirection(weatherData.windDeg)
+    const windUnit = state.units === 'metric' ? 'km/h' : 'mph'
+    const windSpeed = state.units === 'metric' ? (weatherData.windSpeed * 3.6).toFixed(1) : weatherData.windSpeed
+    const tempUnit = state.units === 'metric' ? '°C' : '°F'
 
     return (
         <div className="weather-overview">
-            <p className="weather-temp">{Math.round(weatherData.temp)}</p>
+            <p className="weather-temp">{Math.round(weatherData.temp)}{tempUnit}</p>
             <p className="weather-condition">{weatherData.condition}</p>
             <p className="weather-location">{locationName}</p>
-            <p className="weather-wind">{weatherData.windSpeed} mph from {windDirection}</p>
+            <p className="weather-wind">{windSpeed} {windUnit} from {windDirection}</p>
         </div>
     )
 }
