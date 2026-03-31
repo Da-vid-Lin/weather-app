@@ -1,10 +1,10 @@
-import { formatTime } from '../../utils/formatTime'
+import { formatDate } from '../../utils/formatDate'
 export default function DailyForecastCard({ dailyData }){
     return(
         <div className="daily-forecast">
             {dailyData.map((day) => (
                 <div key={day.date}>
-                    <p>{formatTime(day.date)}</p>
+                    <p>{formatDate(day.date)}</p>
                     <p>{day.minTemp}</p>
                     <p>{day.maxTemp}</p>
                     <p>{day.chance}</p>
