@@ -218,14 +218,14 @@
 /* ─── Daily Forecasts scrollable ─────────────────────────────────────────── */
 
 /* The Main Wrapper */
-.daily-forecast, .hourly-forecast {
+.daily-forecast {
   margin: 1rem 0; 
   width: 100%;
   box-sizing: border-box;
 }
 
 /* The Scrolling Row */
-.daily-forecast > div, .hourly-forecast > div {
+.daily-forecast > div {
   display: flex;
   flex-direction: row;
   gap: 0.75rem; 
@@ -238,7 +238,7 @@
 }
 
 /* The Individual Day Column */
-.daily-forecast > div > *, .hourly-forecast > div > * {
+.daily-forecast > div > * {
   flex: 0 0 auto;
   width: 4rem; 
   display: flex;
@@ -253,7 +253,7 @@
 }
 
 /* Strip styles from the inner text elements */
-.daily-forecast > div > * > *, .hourly-forecast > div > * > * {
+.daily-forecast > div > * > * {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
@@ -266,17 +266,17 @@
 }
 
 /* The Image Targeting */
-.daily-forecast > div > * > img, .hourly-forecast > div > * > img {
+.daily-forecast > div > * > img {
   width: 2.5rem; 
   height: 2.5rem; 
   object-fit: contain;
 }
 
 /* The Scrollbar Styling */
-.daily-forecast > div::-webkit-scrollbar, .hourly-forecast > div::-webkit-scrollbar {
+.daily-forecast > div::-webkit-scrollbar{
   height: 0.25rem; 
 }
-.daily-forecast > div::-webkit-scrollbar-thumb, .hourly-forecast > div::-webkit-scrollbar {
+.daily-forecast > div::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2); 
   border-radius: 10px;
 }
