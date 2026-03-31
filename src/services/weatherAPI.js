@@ -47,7 +47,7 @@ export async function fetchHourlyForecast(lat, lon, units = 'metric') {
 
     const data = response.data
 
-    const hourly = data.hourly.slice(0, 24).map(hour => {
+    const hourly = data.list.slice(0, 24).map(hour => {
         return {
             time: hour.dt,
             temp: hour.main.temp,
@@ -72,7 +72,7 @@ export async function fetchDailyForecast(lat, lon, units = 'metric') {
 
     const data = response.data
 
-    const daily = data.daily.slice(0, 7).map(day => {
+    const daily = data.list.slice(0, 7).map(day => {
         return {
             date: day.dt,
             minTemp: day.temp.min,
