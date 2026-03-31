@@ -103,7 +103,7 @@ export default function SearchWeather() {
                   setLocationA(dispatch, loc.name);
                 } else {
                   setLocationB(dispatch, loc.name);
-                  // We pass copy to prevent unexpected bhavious
+                  // We pass copy to prevent accidentally mutating the state  
                   setRecentDestinations(settingsDispatch, loc.name, [...settingsState.recentDestinations]);
                 }
               }}
