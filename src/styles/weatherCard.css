@@ -78,11 +78,11 @@
 /* ─── Location Pin ───────────────────────────────────────── */
 
 .weather-location {
-    display: flex;
-    align-items: center;
+    display: block;
+    text-align: center;
     gap: 5px;
     margin: 10px 0 0;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
     letter-spacing: 0.5px;
@@ -90,7 +90,7 @@
 
 .weather-location::before {
     content: '📍';
-    font-size: 12px;
+    font-size: 18px;
 }
 
 
@@ -128,6 +128,7 @@
 .weather-wind::before {
     content: '🌬️';
     font-size: 18px;
+    text-align: center;
 }
 
 
