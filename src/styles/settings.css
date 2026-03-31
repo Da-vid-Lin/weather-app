@@ -1,0 +1,70 @@
+/* Settings page layout */
+.main-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100svh;
+    padding: 56px 20px 40px;
+    background-image: url('/src/assets/background/HomeBG.png');
+    background-size: cover;
+    background-position: center top;
+    font-family: 'Outfit', sans-serif;
+    gap: 16px;
+}
+
+/* Settings page title */
+.main-settings h1 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+}
+
+/* Wrapper around each toggle (label + button) */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Toggle section label e.g. "Measurement Units" */
+.button-title {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin: 0;
+    padding-left: 4px;
+}
+
+/* The toggle button itself */
+.button-main {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 18px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.button-main:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Button label text */
+.button-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+}
