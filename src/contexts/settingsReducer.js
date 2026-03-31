@@ -3,7 +3,7 @@ export const initialState = {
     units: 'metric',
     view: 'dark',
     depth: 'basic',
-    home: null,
+    home: "Barking",
     recentDestinations: []
 }
 

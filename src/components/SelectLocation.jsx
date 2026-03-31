@@ -19,7 +19,7 @@ export default function SelectLocation() {
 						<Link to="/search/home" className="icon-circle">
 							<img src={Plus} alt="Set Home" />
 						</Link>
-						<Link to="/weather" className="card-text">
+						<Link to="/" className="card-text">
 							{state.locationA || 'Select a Location'}
 						</Link>
 					</div>
