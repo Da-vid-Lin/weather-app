@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavigationBar'
 
 import SelectPage from './pages/SelectPage'
 import LocationPage from './pages/LocationPage'
@@ -14,8 +15,9 @@ export default function App() {
                 <Route path="/search/:field" element={<LocationPage />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="/settings" element={<SettingsPage />} />
-				<Route path="/weather" element={<WeatherPage />} />
+                <Route path="/weather" element={<WeatherPage />} />
             </Routes>
+            <NavBar />
         </BrowserRouter>
     )
 }
