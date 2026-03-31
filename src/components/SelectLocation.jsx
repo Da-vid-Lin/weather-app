@@ -8,6 +8,7 @@ import { useSettings } from '../contexts/settingsContext';
 
 export default function SelectLocation() {
 	const { state } = useWeather();
+	// Rename to not overlap with state above
 	const { state: settingsState } = useSettings();
 	const navigate = useNavigate();
 
