@@ -22,14 +22,17 @@ export default function WeatherCard({ weatherData, weatherQuality, locationName,
                 <span>---------------------------------------</span>
                 <CyclingAdvice weatherData={weatherData} weatherQuality={weatherQuality}/>
                 <span>---------------------------------------</span>
+                <div className="hourly-forecast">
+                    <HourlyForecastCard hourlyData={hourlyData}/>
+                </div>
+               <div className="daily-forecast">
+                    <DailyForecastCard dailyData={dailyData}/>
+               </div>
                 <StatsCard weatherData={weatherData} />
                 <div className="stats-row">
                     <WindCard weatherData={weatherData} />
                     <AirQualityCard weatherQuality={weatherQuality} />
                 </div>
-                <span>---------------------------------------</span>
-                <HourlyForecastCard hourlyData={hourlyData}/>
-                <DailyForecastCard dailyData={dailyData}/>
             </div>
         </div>
     )
