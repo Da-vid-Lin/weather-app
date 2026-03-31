@@ -3,6 +3,8 @@ import { fetchCurrentWeather } from '../services/weatherApi'
 import { fetchAirQuality } from '../services/weatherApi'
 import { searchCity } from '../services/geocodingApi'
 import { useWeather } from '../contexts/weatherContext'
+import { fetchHourlyForecast } from '../services/weatherApi'
+import { fetchDailyForecast } from '../services/weatherApi'
 import WeatherCard from '../components/WeatherCard'
 
 export default function WeatherPage() {
@@ -10,6 +12,8 @@ export default function WeatherPage() {
     const [currentWeather, setCurrentWeather] = useState(null)
     const [currentQuality, setCurrentQuality] = useState(null)
     const [currentName, setCurrentName] = useState(null)
+    const [currentHourly, setCurrentHourly] = useState(null)
+    const [currentDaily, setCurrentDaily] = useState(null)
 
     // Using api to get cords and weather info
     useEffect(() => {
@@ -26,9 +30,17 @@ export default function WeatherPage() {
             const currentQuality = await fetchAirQuality(city.lat, city.lon)
             console.log('Quality fetched:', currentQuality)
 
+            const currentHourly = await fetchHourlyForecast(city.lat, city.lon)
+            console.log('Hourly fetched:', currentHourly)
+
+            const currentDaily = await fetchDailyForecast(city.lat, city.lon)
+            console.log('Daily fetched:', currentDaily)
+
             setCurrentWeather(currentWeather)
             setCurrentQuality(currentQuality)
             setCurrentName(city.name)
+            setCurrentHourly(currentHourly)
+            setCurrentDaily(currentDaily)
         }
 
         loadWeather()
@@ -37,7 +49,7 @@ export default function WeatherPage() {
     // Displaying the weather information
     return (
         <div>
-            <WeatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName}/>
+            <WeatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName} hourlyData={currentHourly} dailyData={currentDaily}/>
         </div>
     )
 }
