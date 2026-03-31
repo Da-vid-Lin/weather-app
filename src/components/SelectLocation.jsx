@@ -8,7 +8,7 @@ import { useSettings } from '../contexts/settingsContext';
 
 export default function SelectLocation() {
 	const { state } = useWeather();
-	const { state: settingsState } = useSettings();
+ 	const { state: settingsState } = useSettings();
 
 	return (
 		<div className="app-wrapper">
@@ -20,7 +20,7 @@ export default function SelectLocation() {
 							<img src={Plus} alt="Set Home" />
 						</Link>
 						<Link to="/" className="card-text">
-							{state.locationA || 'Select a Location'}
+							{settingsState.home || 'Select a Location'}
 						</Link>
 					</div>
 				</div>

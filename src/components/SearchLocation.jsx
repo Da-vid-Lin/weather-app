@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { searchCity } from '../services/geocodingApi';
 import { useWeather } from '../contexts/weatherContext';
-import { setLocationA, setLocationB } from '../contexts/weatherActions';
+import { setLocationB } from '../contexts/weatherActions';
+import { setHome } from '../contexts/settingsActions';
 import '../styles/searchLocation.css';
 import { useSettings } from '../contexts/settingsContext';
 import { setRecentDestinations } from '../contexts/settingsActions';
@@ -69,7 +70,7 @@ export default function SearchLocation() {
 		<div className="app-wrapper">
 			<div className="mobile-container search-page-layout">
 				<div className="top-nav">
-					<Link to="/" className="back-btn">
+					<Link to="/select" className="back-btn">
 						&#8592;
 					</Link>
 				</div>
@@ -96,11 +97,11 @@ export default function SearchLocation() {
 					{results.map((loc, index) => (
 						<Link
 							key={index}
-							to="/"
+							to={field === 'home' ? '/' : '/weather'}
 							className="result-item"
 							onClick={() => {
 								if (field === 'home') {
-									setLocationA(dispatch, loc.name);
+									setHome(settingsDispatch, loc.name);
 								} else {
 									setLocationB(dispatch, loc.name);
 									// We pass copy to prevent accidentally mutating the state  
