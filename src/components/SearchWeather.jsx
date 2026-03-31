@@ -4,12 +4,15 @@ import { searchCity } from '../services/geocodingAPI';
 import { useWeather } from '../contexts/weatherContext';
 import { setLocationA, setLocationB } from '../contexts/weatherActions';
 import '../styles/SearchWeather.css';
+import { useSettings } from '../contexts/settingsContext';
+import { setRecentDestinations } from '../contexts/settingsActions';
 
 export default function SearchWeather() {
   const { dispatch } = useWeather();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const { field } = useParams();
+  const { state: settingsState, dispatch: settingsDispatch } = useSettings();
 
   // London bounding
   const BOUNDS = {
@@ -100,6 +103,8 @@ export default function SearchWeather() {
                   setLocationA(dispatch, loc.name);
                 } else {
                   setLocationB(dispatch, loc.name);
+                  // We pass copy to prevent unexpected bhavious
+                  setRecentDestinations(settingsDispatch, loc.name, [...settingsState.recentDestinations]);
                 }
               }}
             >
