@@ -4,7 +4,7 @@ import { fetchAirQuality } from '../services/weatherApi'
 import { searchCity } from '../services/geocodingApi'
 import { useWeather } from '../contexts/weatherContext'
 import { setLocationA } from '../contexts/weatherActions'
-import LocationCard from '../components/LocationCard'
+import WeatherCard from '../components/WeatherCard'
 
 export default function WeatherPage() {
     const { state, dispatch } = useWeather()
@@ -38,7 +38,7 @@ export default function WeatherPage() {
     // Displaying the weather information
     return (
         <div>
-            <LocationCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName}/>
+            <weatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName}/>
         </div>
     )
 }

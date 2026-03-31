@@ -3,7 +3,7 @@
 import { getCyclingScore } from "../../utils/cyclingScore"
 import { getGearSuggest } from "../../utils/gearSuggest"
 
-import "../../styles/locationCard.css";
+import "../../styles/weatherCard.css";
 
 import perfectBikeImg from '../../assets/ratingIcons/Star.png';
 import decentBikeImg from '../../assets/ratingIcons/ThumbsUp.png';
