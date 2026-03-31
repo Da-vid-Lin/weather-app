@@ -17,14 +17,14 @@ export default function HomePage() {
 
         async function loadWeather() {
             const cities = await searchCity(state.home)
-            console.log('Cities found:', cities)
+            //console.log('Cities found:', cities)
 
             const city = cities[0]
             const currentWeather = await fetchCurrentWeather(city.lat, city.lon, state.units)
-            console.log('Weather fetched:', currentWeather)
+            //console.log('Weather fetched:', currentWeather)
 
             const currentQuality = await fetchAirQuality(city.lat, city.lon, state.units)
-            console.log('Quality fetched:', currentQuality)
+            //console.log('Quality fetched:', currentQuality)
 
             setCurrentWeather(currentWeather)
             setCurrentQuality(currentQuality)
