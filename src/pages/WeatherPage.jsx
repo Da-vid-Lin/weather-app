@@ -3,7 +3,7 @@ import { fetchCurrentWeather } from '../services/weatherApi'
 import { fetchAirQuality } from '../services/weatherApi'
 import { searchCity } from '../services/geocodingApi'
 import { useWeather } from '../contexts/weatherContext'
-import { setLocationA } from '../contexts/weatherActions'
+import { setLocationB } from '../contexts/weatherActions'
 import WeatherCard from '../components/WeatherCard'
 
 export default function WeatherPage() {
@@ -14,10 +14,10 @@ export default function WeatherPage() {
 
     // Using api to get cords and weather info
     useEffect(() => {
-        if (!state.locationA) { return }
+        if (!state.locationB) { return }
 
         async function loadWeather() {
-            const cities = await searchCity(state.locationA)
+            const cities = await searchCity(state.locationB)
             console.log('Cities found:', cities)
 
             const city = cities[0]
@@ -33,12 +33,12 @@ export default function WeatherPage() {
         }
 
         loadWeather()
-    }, [state.locationA])
+    }, [state.locationB])
 
     // Displaying the weather information
     return (
         <div>
-            <weatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName}/>
+            <WeatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName}/>
         </div>
     )
 }
