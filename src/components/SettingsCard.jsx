@@ -4,7 +4,7 @@ import  DepthToggle  from './toggles/DepthToggle'
 import  ViewToggle  from './toggles/ViewToggle'
 import '../styles/settings.css'
 
-export default function SettingsCard() {
+export default function SettingsCard({ currentTheme, toggleTheme }) {
     const { state, dispatch } = useSettings();
 
     return (
@@ -12,7 +12,7 @@ export default function SettingsCard() {
             <h1>Settings</h1>
             <UnitToggle />
             <DepthToggle />
-            <ViewToggle />
+            <ViewToggle currentTheme={currentTheme} toggleTheme={toggleTheme}/>
         </div>
     )
 }
