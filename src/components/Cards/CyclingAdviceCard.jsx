@@ -5,11 +5,11 @@ import { getGearSuggest } from "../../utils/gearSuggest"
 
 import "../../styles/locationCard.css";
 
-import perfectBikeImg from '../../assets/ratingIcons/star.png';
-import decentBikeImg from '../../assets/ratingIcons/thumbs-up.png';
-import badBikeImg from '../../assets/ratingIcons/sad-face.png';
+import perfectBikeImg from '../../assets/ratingIcons/Star.png';
+import decentBikeImg from '../../assets/ratingIcons/ThumbsUp.png';
+import badBikeImg from '../../assets/ratingIcons/SadFace.png';
 import hazardBikeImg from '../../assets/images/Warning.png';
-import stopBikeImg from '../../assets/ratingIcons/no-bike.png';
+import stopBikeImg from '../../assets/ratingIcons/NoBike.png';
 
 const adviceImages = {
   	'Perfect cycling conditions': perfectBikeImg,
