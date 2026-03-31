@@ -1,32 +1,44 @@
+// Takes weatherData and returns what gear the cyclist should bring
+
 export function getGearSuggest(weatherData){
-    let suggestString = 'Recommended gear: Protective gear, '
+    let Gears = []
 
     if(weatherData.condition === 'Tornado'){
-        return 'Warning Tornado'
+        return 'Stay Indoors'
     }
+    
     if(weatherData.condition === 'Thunderstorm'){
-        return 'Recommended gear: Waterproof clothing, High-vis Jacket, Insulated clothing'
+        Gears.push('Waterproof Clothes')
     }
 
-    if(weatherData.condition === 'Squall' || weatherData.windSpeed > 20){
-        suggestString +='light gear '
+    if(weatherData.condition === 'Squall'){
+        Gears.push('Windproof Gear')
     }
+
     if(weatherData.condition === 'Rain' || weatherData.condition === 'Drizzle'){
-        suggestString +='Water proof clothing '
+        Gears.push('Waterproof Clothes')
     }
+
     if(weatherData.condition === 'Snow'){
-        suggestString +='Insulated clothing, Snow tires'
+        Gears.push('Insulated Clothes')
+        Gears.push('Snow Tires')
     }
+
     if(weatherData.condition === 'Fog' || weatherData.condition === 'Mist' || weatherData.condition === 'Haze'){
-        suggestString +='High-vis Jacket '
+        Gears.push('High-Vis Jacket')
     }
     
     if(weatherData.condition === 'Smoke' || weatherData.condition === 'Dust' || weatherData.condition === 'Sand' || weatherData.condition === 'Ash'){
-        suggestString +='Face mask, Goggles '
+        Gears.push('Face Mask')
+        Gears.push('Goggles')
     }
 
     if(weatherData.visibility < 2000){
-        suggestString +='Bike lights '
+        Gears.push('Bike Lights')
     }
-    return suggestString
+
+    if (Gears.length == 0){
+        return ["None Needed !"]
+    }
+    return Gears
 }
