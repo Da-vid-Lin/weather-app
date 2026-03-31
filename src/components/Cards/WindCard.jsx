@@ -12,7 +12,7 @@ export default function WindCard({weatherData}) {
     const windSpeed = state.units === 'metric' ? (weatherData.windSpeed * 3.6).toFixed(1) : weatherData.windSpeed
     const gustSpeed = state.units === 'metric' ? (weatherData.windGust * 3.6).toFixed(1) : weatherData.windGust
 
-    console.log(weatherData)
+    //console.log(weatherData)
 
     return (
         <div className="stat-tile">
