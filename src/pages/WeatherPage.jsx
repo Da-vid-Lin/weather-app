@@ -30,10 +30,10 @@ export default function WeatherPage() {
             const currentQuality = await fetchAirQuality(city.lat, city.lon, state.units)
             console.log('Quality fetched:', currentQuality)
 
-            const currentHourly = await fetchHourlyForecast(city.lat, city.lon)
+            const currentHourly = await fetchHourlyForecast(city.lat, city.lon, state.units)
             console.log('Hourly fetched:', currentHourly)
 
-            const currentDaily = await fetchDailyForecast(city.lat, city.lon)
+            const currentDaily = await fetchDailyForecast(city.lat, city.lon, state.units)
             console.log('Daily fetched:', currentDaily)
 
             setCurrentWeather(currentWeather)
