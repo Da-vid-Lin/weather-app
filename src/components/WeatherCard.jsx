@@ -5,9 +5,11 @@ import StatsCard from './cards/StatsCard'
 import WindCard from './cards/WindCard'
 import AirQualityCard from './cards/AirQualityCard'
 import CyclingAdvice from './cards/CyclingAdviceCard'
+import HourlyForecastCard from './Cards/HourlyForecastCard'
+import DailyForecastCard from './Cards/DailyForecastCard'
 
-export default function WeatherCard({ weatherData, weatherQuality, locationName }) {
-    if (!weatherData || !weatherQuality || !locationName) {
+export default function WeatherCard({ weatherData, weatherQuality, locationName, hourlyData, dailyData }) {
+    if (!weatherData || !weatherQuality || !locationName || !hourlyData || !dailyData) {
         return <div className="location-card">Loading...</div>
     }
 
@@ -25,6 +27,9 @@ export default function WeatherCard({ weatherData, weatherQuality, locationName 
                     <WindCard weatherData={weatherData} />
                     <AirQualityCard weatherQuality={weatherQuality} />
                 </div>
+                <span>---------------------------------------</span>
+                <HourlyForecastCard hourlyData={hourlyData}/>
+                <DailyForecastCard dailyData={dailyData}/>
             </div>
         </div>
     )
