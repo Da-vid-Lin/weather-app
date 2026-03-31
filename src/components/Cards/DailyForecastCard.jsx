@@ -5,10 +5,10 @@ export default function DailyForecastCard({ dailyData }){
             {dailyData.map((day) => (
                 <div key={day.date}>
                     <p>{formatDate(day.date)}</p>
+                    <img src={`https://openweathermap.org/img/wn/${day.icon}.png`} />
                     <p>{((day.minTemp + day.maxTemp)/2).toFixed(0)}</p>
                     <p>{day.chance}</p>
-                    <img src={`https://openweathermap.org/img/wn/${day.icon}.png`} />
-
+                    
                 </div>
 
             ))}
