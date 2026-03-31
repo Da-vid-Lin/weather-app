@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SettingsPage from './pages/SettingsPage'
 import WeatherPage from './pages/WeatherPage'
-import Dashboard from './components/Dashborad'
+import Dashboard from './components/Dashboard'
 import SearchWeather from './components/SearchWeather'
 
 export default function App() {

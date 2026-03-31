@@ -4,9 +4,12 @@ import '../styles/Dashboard.css';
 import Plus from '../assets/images/Plus1.png';
 import SearchImg from '../assets/images/Search.png';
 import { useWeather } from '../contexts/weatherContext';
+import LocationCapsule from './Cards/LocationCapsule';
+import { useSettings } from '../contexts/settingsContext';
 
 export default function Dashboard() {
   const { state } = useWeather();
+  const { state: settingsState } = useSettings();
 
   return (
     <div className="app-wrapper">
@@ -35,18 +38,14 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {
-        /*
-        
-        <div className='recents'>
-          <h2 className="section-title">Recent Searches</h2>
-          <LocationCapsule city1/>
-          <LocationCapsule city2/>
-          <LocationCapsule city3/>
-        </div>
-        
-        */
-        }
+        {settingsState.recentDestinations.length > 0 && (
+          <div className='recents'>
+            <h2 className="section-title">Recent Searches</h2>
+            {settingsState.recentDestinations.map((city) => (
+              <LocationCapsule city={city} />
+            ))}
+          </div>
+        )}
 
       </div>
     </div>

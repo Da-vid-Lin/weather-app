@@ -1,0 +1,11 @@
+.recent-capsule {
+    margin-bottom: 15px;
+    min-height: 64px; 
+    box-sizing: border-box;
+}
+
+.recent-capsule-text {
+    /* Aligns the text with the main cards */
+    margin-left: 55px;
+    width: 100%;
+}
