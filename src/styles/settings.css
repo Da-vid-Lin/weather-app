@@ -7,9 +7,8 @@
     text-align: center;
     min-height: 100svh;
     padding: 56px 20px 40px;
-    background-image: url('/src/assets/background/HomeBG.png');
-    background-size: cover;
-    background-position: center top;
+    background-image: none;
+    background-color: #242222;
     font-family: 'Outfit', sans-serif;
     gap: 16px;
 }
