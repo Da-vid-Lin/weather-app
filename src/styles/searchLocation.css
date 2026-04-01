@@ -1,14 +1,17 @@
 /* ─── Search Page Specifics ───────────────────────────────── */
 
+/* Adds breathing room to the very top of the search view */
 .search-page {
 	padding-top: 40px;
 }
 
+/* Wrapper for the back button and any other top-level navigation */
 .top-nav {
 	display: flex;
 	margin-bottom: 2rem;
 }
 
+/* Strips default button styles to make a clean text/icon back button */
 .back-btn {
 	background: none;
 	border: none;
@@ -22,7 +25,9 @@
 	text-decoration: none;
 }
 
-/* Search Input Bar */
+/* ─── Search Input Bar ────────────────────────────────────── */
+
+/* The pill-shaped, frosted glass container holding the search input */
 .search-input-wrapper {
 	background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(8px);
@@ -35,12 +40,13 @@
 	padding: 0.75rem 1rem;
 	margin-bottom: 2rem;
 }
-
+/* Dark mode override: replaces glass with a solid dark grey */
 [data-theme="dark"] .search-input-wrapper {
     background-color: #333131;
     border: none;
 }
 
+/* The actual text input field */
 .search-input-wrapper input {
 	background: none;
 	border: none;
@@ -51,11 +57,13 @@
 	outline: none;
 }
 
+/* Styling for the ghost text before the user types */
 .search-input-wrapper input::placeholder {
 	color: var(--text);
     opacity: 0.6;
 }
 
+/* The clickable search/submit icon inside the bar */
 .search-icon-btn {
 	background: none;
 	border: none;
@@ -68,12 +76,15 @@
 	transform: scaleX(-1);
 }
 
-/* Results List */
+/* ─── Results List ────────────────────────────────────────── */
+
+/* Container stacking the search autocomplete results */
 .results-list {
 	display: flex;
 	flex-direction: column;
 }
 
+/* A single city/location result row */
 .result-item {
 	display: block;
 	padding: 1.25rem 0.5rem;
@@ -85,12 +96,14 @@
 	text-decoration: none;
 }
 
+/* Hover effect: adds a background bubble and nudges text slightly right */
 .result-item:hover {
 	background-color: var(--glass-hover);
     padding-left: 0.75rem; 
     border-radius: 12px;
 }
 
+/* Adjusts the hover bubble color for dark mode */
 [data-theme="dark"] .result-item:hover {
     background-color: #2a2828;
 }
