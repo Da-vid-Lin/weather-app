@@ -13,7 +13,7 @@ export default function OverviewCard({weatherData, locationName}) {
     return (
         <div className="weather-overview">
             <p className="weather-temp">{Math.round(weatherData.temp)}{tempUnit}</p>
-            <p className="weather-feels">feels like {Math.round(weatherData.feelsLike)}{tempUnit}</p>
+            <p className="weather-feels">Feels like {Math.round(weatherData.feelsLike)}{tempUnit}</p>
             <p className="weather-location">{locationName}, {weatherData.condition}</p>
             <p className="weather-wind">{windSpeed} {windUnit} from {windDirection}</p>
         </div>
