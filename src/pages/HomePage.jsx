@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { fetchCurrentWeather } from '../services/weatherApi'
 import { fetchAirQuality } from '../services/weatherApi'
 import { searchCity } from '../services/geocodingApi'
@@ -11,7 +12,7 @@ export default function HomePage() {
         const [currentQuality, setCurrentQuality] = useState(null)
         const [currentName, setCurrentName] = useState(null)
 
-    // Using api to get cords and weather info
+    // Redirect to select page if no home location is set
     useEffect(() => {
         if (!state.home) { return }
 
@@ -33,6 +34,11 @@ export default function HomePage() {
 
         loadWeather()
     }, [state.home])
+
+    // Redirect user on start if home location not found
+    if (!state.home) {
+        return <Navigate to="/select" replace />
+    }
 
     // Displaying the weather information
     return (
