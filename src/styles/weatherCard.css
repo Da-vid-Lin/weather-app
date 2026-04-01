@@ -327,6 +327,7 @@
 /* ─── Hourly Forecasts scrollable ─────────────────────────────────────────── */
 
 /* ─── Outer Wrapper ──────────────────────────────────────── */
+/* Main container for the entire hourly forecast section */
 .hourly-forecast {
     margin: 1rem 0;
     width: 100%;
@@ -334,6 +335,7 @@
 }
 
 /* ─── Scrolling Row ──────────────────────────────────────── */
+/* The main frosted glass container that allows horizontal scrolling of hours */
 .hourly-scroll-row {
     display: flex;
     flex-direction: row;
@@ -348,6 +350,7 @@
     padding: 0.5rem;
 }
 
+/* Custom horizontal scrollbar for the hourly row */
 .hourly-scroll-row::-webkit-scrollbar {
     height: 0.25rem;
 }
@@ -357,6 +360,7 @@
 }
 
 /* ─── Each Section (Origin / Divider / Destination) ─────── */
+/* Wrapper for grouped blocks within the scrolling row (e.g., origin location block vs destination block) */
 .hourly-section {
     display: flex;
     flex-direction: column;
@@ -366,6 +370,7 @@
 }
 
 /* ─── The Row Of Cards Inside A Section ─────────────────── */
+/* Container holding the specific hour cards within a section */
 .hourly-cards {
     display: flex;
     flex-direction: row;
@@ -374,6 +379,7 @@
 }
 
 /* ─── Individual Hour Card ───────────────────────────────── */
+/* The specific glass capsule representing a single hour's forecast */
 .hourly-cards > div {
     flex: 0 0 auto;
     width: 4rem;
@@ -390,6 +396,7 @@
     transition: all 0.2s ease;
 }
 
+/* Hover effect for individual hour cards */
 .hourly-cards > div:hover {
     background: rgba(255, 255, 255, 0.13);
     transform: translateY(-2px);
@@ -397,6 +404,7 @@
 }
 
 /* ─── Text Inside Hour Cards ─────────────────────────────── */
+/* Typography for the time and temperature inside the hour card */
 .hourly-cards > div > p {
     margin: 0;
     font-family: 'Outfit', sans-serif;
@@ -406,6 +414,7 @@
 }
 
 /* ─── Image Inside Hour Cards ────────────────────────────── */
+/* Sizing for the weather icon inside the hour card */
 .hourly-cards > div > img {
     width: 2.5rem;
     height: 2.5rem;
@@ -413,8 +422,11 @@
 }
 
 /* ─── Location Label Bar ─────────────────────────────────── */
+/* The text label indicating location (e.g., "Bow", "Bromley-by-Bow") beneath the hour cards */
 .hourly-label {
     background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     text-align: left;
@@ -426,11 +438,13 @@
 }
 
 /* ─── Divider Section ────────────────────────────────────── */
+/* Container for the transition space between different locations in the scroll row */
 .hourly-divider-section {
     justify-content: space-between;
     padding: 0 0.5rem;
 }
 
+/* Content wrapper for the divider (holds the icon, label, and time) */
 .hourly-divider-content {
     display: flex;
     flex-direction: column;
@@ -441,11 +455,13 @@
     padding: 0.5rem 0rem;
 }
 
+/* The icon used in the divider (e.g., a pin or transition symbol) */
 .divider-icon {
     font-size: 1.2rem;
     margin: 0;
 }
 
+/* The text describing the transition (e.g., "Location Change") */
 .divider-label {
     font-family: 'Outfit', sans-serif;
     font-size: 0.75rem;
@@ -454,6 +470,7 @@
     margin: 0;
 }
 
+/* The text showing the duration (e.g., "5m Cycle Time") */
 .divider-time {
     font-family: 'Outfit', sans-serif;
     font-size: 0.85rem;
@@ -464,6 +481,7 @@
 }
 
 /* ─── Arrow Label Under Divider ──────────────────────────── */
+/* The transparent arrow (->) linking the location labels at the bottom */
 .hourly-label-divider {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.5);
