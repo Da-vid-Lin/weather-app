@@ -22,9 +22,9 @@ export default function WeatherCard({ weatherData, weatherQuality, locationName,
 
             <div className="location-overlay">
                 <OverviewCard weatherData={weatherData} locationName={locationName} />
-                <span>---------------------------------------</span>
+                <hr className="divider" />
                 <CyclingAdvice weatherData={weatherData} weatherQuality={weatherQuality}/>
-                <span>---------------------------------------</span>
+                <hr className="divider" />
                 <div className="daily-forecast">
                     <HourlyForecastCard hourlyData={hourlyData} hourlyLocationData={hourlyLocationData} 
                     routeData={routeData}/>

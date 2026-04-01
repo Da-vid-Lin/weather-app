@@ -86,7 +86,9 @@
 }
 
 .result-item:hover {
-	background-color: rgba(255, 255, 255, 0.15);
+	background-color: var(--glass-hover);
+    padding-left: 0.75rem; 
+    border-radius: 12px;
 }
 
 [data-theme="dark"] .result-item:hover {
