@@ -26,11 +26,18 @@
 }
 
 .stat-sub-value {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-h);
 }
 
+.cycling-advice-section .stat-sub-label {
+    font-size: 20px; /* BIGGER */
+}
+
+.cycling-advice-section .stat-sub-value {
+    font-size: 21px; /* BIGGER */
+}
 
 /* Removed for now maybe add back later */
 .compass {

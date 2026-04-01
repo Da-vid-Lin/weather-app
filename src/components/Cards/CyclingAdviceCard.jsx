@@ -25,7 +25,7 @@ export default function CyclingAdvice({ weatherData, weatherQuality}){
   	const displayImage = adviceImages[cyclingMessage[0]];
 
   	return(
-            <div className="stat-breakdown">
+            <div className="stat-breakdown cycling-advice-section">
 				<div className="stat-sub">
 					<span className="stat-sub-label">Cycling Score</span>
         			<span className="stat-sub-value">{cyclingMessage[1]}%</span>
