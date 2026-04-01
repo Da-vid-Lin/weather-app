@@ -1,16 +1,19 @@
 /* ─── Select Page Specifics ───────────────────────────────── */
- 
+
+/* Main wrapper for the location selection page */
 .select-page {
 	gap: 30px;
 }
- 
-/* Sections */
+
+/* ─── List Sections ───────────────────────────────────────── */
+/* Wrapper for lists*/
 .list-section {
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
 }
  
+/* The small text heading above a list */
 .section-title {
 	font-size: 14px;
 	font-weight: normal;
@@ -21,7 +24,9 @@
     text-transform: uppercase;
 }
  
-/* Reusable Action Cards (Pills) */
+/* ─── Action Cards (Pills) ────────────────────────────────── */
+
+/* Reusable pill-shaped buttons (e.g., "Add Location", "Current Location") */
 .action-card {
 	background-color: rgba(255, 255, 255, 0.3);
 	backdrop-filter: blur(12px);
@@ -37,12 +42,14 @@
 	transition: background-color 0.2s ease;
 }
  
+/* Dark mode override for the action cards */
 [data-theme="dark"] .action-card {
     background-color: #3a3b38;
     color: #ffffff;
     border: none;
 }
  
+/* Hover/Tap animation for the action cards */
 .action-card:hover {
 	background-color: var(--glass-hover);
     transform: translateY(-2px);
@@ -61,11 +68,13 @@
 	margin-right: 15px;
 }
  
+/* The icon image itself inside the circle */
 .icon-circle img {
 	width: 20px;
 	height: 20px;
 }
  
+/* The primary text label inside the action card */
 .card-text {
 	font-size: 15px;
 	flex: 1;
@@ -74,7 +83,9 @@
 	text-align: left;
 }
  
-/* Weather Card Specifics */
+/* ─── Weather Card Specifics (Saved Locations) ────────────── */
+
+/* Extends .action-card specifically for rows displaying saved cities */
 .weather-card {
 	justify-content: space-between;
 	padding: 16px 20px;
@@ -84,24 +95,28 @@
 .weather-card:hover {
 	background-color: #3a3b38;
 }
- 
+
+/* Wrapper grouping the weather icon and city details together */
 .weather-left {
 	display: flex;
 	align-items: center;
 	gap: 15px;
 }
- 
+
+/* The small weather graphic on the saved location card */
 .weather-icon {
 	width: 45px;
 	height: auto;
 }
  
+/* Wrapper grouping the City Name and the Condition text */
 .weather-details {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
 }
  
+/* The city name on the saved card */
 .location-name {
 	font-size: 15px;
     font-weight: 600;
@@ -113,6 +128,7 @@
     opacity: 0.8;
 }
  
+/* The temperature number on the right side of the card */
 .temperature {
 	font-size: 22px;
 	display: flex;
@@ -121,6 +137,7 @@
     color: var(--text-h);
 }
  
+/* Aligns the little circle '°' next to the temperature */
 .degree-symbol {
 	font-size: 14px;
 	margin-left: 2px;

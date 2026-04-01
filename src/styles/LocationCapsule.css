@@ -1,3 +1,6 @@
+/* ─── Location Capsule Component ─────────────────────────── */
+
+/* Main wrapper for the recent/saved location capsule */
 .recent-capsule {
     margin-bottom: 15px;
     min-height: 64px; 
@@ -5,6 +8,7 @@
     color: var(--text-h);
 }
  
+/* The text label inside the capsule (e.g., city name) */
 .recent-capsule-text {
     width: 100%;
     font-family: var(--sans);
@@ -12,6 +16,7 @@
     font-weight: 500;
 }
  
+/* The circular background shape that holds the weather icon */
 .capsule-icon-circle {
     background-color: #e8e8e8;
     width: 40px;
@@ -24,10 +29,12 @@
     margin-right: 15px;
 }
  
+/* Dark mode override for the icon circle background */
 [data-theme="dark"] .capsule-icon-circle {
     background-color: rgba(255, 255, 255, 0.12);
 }
  
+/* The actual weather image/graphic inside the circle */
 .capsule-weather-icon {
     width: 22px;
     height: 22px;

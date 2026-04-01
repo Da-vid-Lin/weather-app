@@ -1,4 +1,6 @@
 /* ─── Desktop: Top Navbar ────────────────────────────────── */
+
+/* The main container fixed to the top of the screen */
 .navbar {
     position: fixed;
     top: 0;
@@ -17,6 +19,7 @@
     transition: background 0.3s ease;
 }
 
+/* Individual navigation link (Icon + Text) */
 .nav-item {
     display: flex;
     flex-direction: row;
@@ -30,21 +33,25 @@
     border-radius: 12px;
 }
 
+/* Subtle background pop when hovering over a link on desktop */
 .nav-item:hover {
     opacity: 0.8;
     background: rgba(255, 255, 255, 0.15);
 }
 
+/* Bright, highlighted state applied to the currently active page */
 .nav-active {
     color: var(--text-h) !important;
     opacity: 1;
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* Size for the navigation emoji/graphic */
 .nav-icon {
     font-size: 18px;
 }
 
+/* Typography for the text label next to the icon */
 .nav-label {
     font-size: 13px;
     font-weight: 600;
@@ -52,17 +59,23 @@
     font-family: 'Outfit', sans-serif;
 }
 
+/* ─── Dark Mode Overrides ────────────────────────────────── */
+
+/* Ensures the active tab is pure white in dark mode */
 [data-theme="dark"] .nav-active {
     color: #ffffff !important;
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Adjusts the default dimmed text color for dark backgrounds */
 [data-theme="dark"] .nav-item {
     color: rgba(255, 255, 255, 0.5);
 }
 
 /* ─── Mobile: Bottom Navbar ──────────────────────────────── */
 @media (max-width: 768px) {
+
+    /* Moves the entire bar from the top to the bottom of the screen */
     .navbar {
         top: unset;
         bottom: 0;
@@ -73,6 +86,7 @@
         padding-bottom: env(safe-area-inset-bottom);
     }
 
+    /* Restructures the link to stack the Icon on top of the Text */
     .nav-item {
         flex-direction: column;
         padding: 10px 20px;
@@ -80,14 +94,17 @@
         gap: 4px;
     }
 
+    /* Removes the background hover effect since mobile relies on taps */
     .nav-item:hover {
         background: none;
     }
 
+    /* Enlarges the icon slightly for easier tapping */
     .nav-icon {
         font-size: 24px;
     }
 
+    /* Shrinks the text slightly to fit the stacked mobile layout */
     .nav-label {
         font-size: 12px;
     }

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
  
+/* ─── Global Variables & Base Theme (Light Mode) ─────────── */
 :root {
 	--text: #1A2B3C;
     --text-h: #0A1628;
@@ -26,22 +27,26 @@
 	--heading: 'Outfit', sans-serif;
 	--mono: ui-monospace, Consolas, monospace;
  
+    /* Standard boilerplate to make fonts render smoothly across different browsers */
 	font: 22px/145% var(--sans);
 	font-weight: 600; 
 	letter-spacing: 0.06em;
 	color-scheme: light dark;
 	color: var(--text);
 	background: var(--bg);
+
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
- 
+    
+    /* Base mobile font size reduction */
 	@media (max-width: 1024px) {
 		font-size: 18px;
 	}
 }
  
+/* ─── Dark Theme Overrides ───────────────────────────────── */
 [data-theme="dark"] {
     --text: #9ca3af;
     --text-h: #f3f4f6;
@@ -64,15 +69,18 @@
     --shadow:
         rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
 }
- 
+
+/* Inverts social icons so they are visible in dark mode */
 [data-theme="dark"] #social .button-icon {
     filter: invert(1) brightness(2);
 }
- 
+
+/* Strips default browser margins */
 body {
 	margin: 0;
 }
- 
+
+/* Main application wrapper to center content and limit max width */
 #root {
 	width: 1126px;
 	max-width: 100%;
@@ -103,6 +111,10 @@ body {
 	flex-direction: column;
 	transition: background-color 0.3s ease;
 }
+
+/* ─── Base Typography ────────────────────────────────────── */
+
+/* Shared styles for all headings */
  
 h1,
 h2 {
@@ -110,7 +122,8 @@ h2 {
 	font-weight: 700;
 	color: var(--text-h);
 }
- 
+
+/* Primary page titles */
 h1 {
 	font-size: 64px;
 	letter-spacing: -1.68px;
@@ -121,7 +134,8 @@ h1 {
 		margin: 20px 0;
 	}
 }
- 
+
+/* Secondary section headings */
 h2 {
 	font-size: 28px;
 	line-height: 118%;
@@ -132,11 +146,13 @@ h2 {
 		font-size: 20px;
 	}
 }
- 
+
+/* Standard paragraph text */
 p {
 	margin: 0;
 }
- 
+
+/* Monospaced blocks for numbers or code */
 code,
 .counter {
 	font-family: var(--mono);
@@ -144,7 +160,8 @@ code,
 	border-radius: 4px;
 	color: var(--text-h);
 }
- 
+
+/* Specific styling for inline code snippets */
 code {
 	font-size: 15px;
 	line-height: 135%;
@@ -152,23 +169,28 @@ code {
 	background: var(--code-bg);
 }
 
+/* ─── Desktop Responsive Overrides (Screens > 768px) ─────── */
 @media (min-width: 769px) {
+    /* Remove borders and max-width from the main wrapper on desktop */
     #root {
         width: 100%;
         max-width: 100%;
         border: none;
     }
 
+    /* Fix background gradient in place while scrolling */
     body {
         background: var(--bg-gradient), var(--bg);
         background-attachment: fixed;
         letter-spacing: 0.08em;
     }
 
+    /* Make primary titles extra bold on desktop */
     h1 {
         font-weight: 800;
     }
 
+    /* Adjust main container padding and remove background for desktop */
     .page-container {
         max-width: 800px;
         min-height: unset;
@@ -178,6 +200,7 @@ code {
         background: none;
     }
 
+    /* Center and space the weather location overlay */
     .location-overlay {
         padding-top: 90px;
         max-width: 800px;
@@ -186,11 +209,13 @@ code {
         padding-right: 40px;
     }
 
+    /* Limit width of settings page for readability */
     .settings-page {
         max-width: 600px;
         margin: 0 auto;
     }
 
+    /* Limit width of location selection page */
     .select-page {
         max-width: 800px;
         margin: 0 auto;

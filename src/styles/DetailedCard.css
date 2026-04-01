@@ -1,3 +1,6 @@
+/* ─── Detailed Stats & Breakdown ─────────────────────────── */
+
+/* Main wrapper for a detailed stats block (like Wind or Air Pollution) */
 .stat-detailed {
     display: flex;
     flex-direction: column;
@@ -6,18 +9,21 @@
     width: 100%;
 }
 
+/* Inner wrapper grouping multiple stat rows together */
 .stat-breakdown {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
+/* A single row (Label + Value) pushing them to opposite sides */
 .stat-sub {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* The left-side text (e.g., "Gust", "PM2.5") */
 .stat-sub-label {
     font-size: 16px;
     font-weight: 500;
@@ -25,57 +31,23 @@
     opacity: 0.8;
 }
 
+/* The right-side text (e.g., "13 km/h", "Fair") */
 .stat-sub-value {
     font-size: 16px;
     font-weight: 600;
     color: var(--text-h);
 }
 
+/* ─── Cycling Advice Overrides ───────────────────────────── */
+
+/* Enlarges the label specifically when it's inside the Cycling Advice section */
 .cycling-advice-section .stat-sub-label {
     font-size: 21.5px;
     font-weight: 600;
 }
 
+/* Enlarges the value specifically when it's inside the Cycling Advice section */
 .cycling-advice-section .stat-sub-value {
     font-size: 21.5px;
     font-weight: 600;
-}
-
-/* Removed for now maybe add back later */
-.compass {
-    position: relative;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-[data-theme="dark"] .compass {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.compass-needle {
-    position: absolute;
-    width: 3px;
-    height: 40%;
-    background: linear-gradient(to bottom, #ff6b35 50%, var(--border) 50%);
-    border-radius: 2px;
-    top: 10%;
-    left: calc(50% - 1.5px);
-    transform-origin: center 100%;
-    transition: transform 0.6s ease;
-}
-
-.compass-label {
-    position: absolute;
-    bottom: -20px;
-    font-size: 11px;
-    color: var(--text);
-    white-space: nowrap;
 }

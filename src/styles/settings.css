@@ -1,5 +1,5 @@
 /* ─── Settings Page Specifics ─────────────────────────────── */
-
+/* Main container for the settings view */
 .settings-page {
     align-items: center;
     justify-content: center;
@@ -50,11 +50,13 @@
     transition: all 0.2s ease;
 }
 
+/* Dark mode overrides for the toggle button */
 [data-theme="dark"] .button-main {
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Hover/Tap animation for the toggle button */
 .button-main:hover {
     background: var(--glass-hover);
     transform: translateY(-2px);
@@ -69,6 +71,7 @@
     font-family: 'Outfit', sans-serif;
 }
 
+/* Ensures high contrast for button text in dark mode */
 [data-theme="dark"] .button-text {
     color: #ffffff;
 }
