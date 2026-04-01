@@ -4,8 +4,9 @@ import OverviewCard from './cards/OverviewCard'
 import StatsCard from './cards/StatsCard'
 import WindCard from './cards/WindCard'
 import AirQualityCard from './cards/AirQualityCard'
+import StaticHourlyForecastCard from './cards/StaticHourlyForecastCard'
 
-export default function DisplayWeather({ weatherData, weatherQuality, locationName }) {
+export default function DisplayWeather({ weatherData, weatherQuality, locationName, hourlyData }) {
     if (!weatherData || !weatherQuality || !locationName) {
         return <div className="location-card">Loading...</div>
     }
@@ -16,6 +17,9 @@ export default function DisplayWeather({ weatherData, weatherQuality, locationNa
 
             <div className="location-overlay">
                 <OverviewCard weatherData={weatherData} locationName={locationName} />
+                <div className="daily-forecast">
+                    <StaticHourlyForecastCard hourlyData={hourlyData}/>
+                </div>
                 <StatsCard weatherData={weatherData} />
                 <div className="stats-row">
                     <WindCard weatherData={weatherData} />
