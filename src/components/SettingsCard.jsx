@@ -8,7 +8,7 @@ export default function SettingsCard({ currentTheme, toggleTheme }) {
     const { state, dispatch } = useSettings();
 
     return (
-        <div className="main-settings">
+        <div className="page-container settings-page">
             <h1>Settings</h1>
             <UnitToggle />
             <DepthToggle />
