@@ -32,11 +32,13 @@
 }
 
 .cycling-advice-section .stat-sub-label {
-    font-size: 20px; /* BIGGER */
+    font-size: 21.5px;
+    font-weight: 600;
 }
 
 .cycling-advice-section .stat-sub-value {
-    font-size: 21px; /* BIGGER */
+    font-size: 21.5px;
+    font-weight: 600;
 }
 
 /* Removed for now maybe add back later */
