@@ -36,7 +36,7 @@ export default function HourlyForecastCard({ hourlyData, hourlyLocationData, rou
                 <div key={`A${index}`}>
                     <p>{formatTime(hourlyLocationData[index].time)}</p>
                     <img src={`https://openweathermap.org/img/wn/${hourlyLocationData[index].icon}.png`} />
-                    <p>{hourlyLocationData[index].temp.toFixed(2)}{tempUnit}</p>
+                    <p>{hourlyLocationData[index].temp.toFixed(0)}{tempUnit}</p>
                     <p>🌧️{(hourlyLocationData[index].chance * 100).toFixed(0)}%</p>
                 </div>
             )
@@ -47,7 +47,7 @@ export default function HourlyForecastCard({ hourlyData, hourlyLocationData, rou
                 <div key={`B${index}`}>
                     <p>{formatTime(hour.time)}</p>
                     <img src={`https://openweathermap.org/img/wn/${hour.icon}.png`} />
-                    <p>{hour.temp.toFixed(2)}{tempUnit}</p>
+                    <p>{hour.temp.toFixed(0)}{tempUnit}</p>
                     <p>🌧️{(hour.chance*100).toFixed(0)}%</p>
                 </div>
             )

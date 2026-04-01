@@ -29,6 +29,7 @@ export default function WeatherPage() {
     // Using api to get cords and weather info
     useEffect(() => {
         if (!state.locationA) { return }
+        if (!state.locationAC) { return }
         if (!state.locationB) { return }
 
         async function loadWeather() {
@@ -39,8 +40,7 @@ export default function WeatherPage() {
             const currentWeather = await fetchCurrentWeather(city.lat, city.lon, settingsState.units)
             //console.log('Weather fetched:', currentWeather)
 
-            const liveLocations = await searchCity(state.locationA)
-            const liveLocation = liveLocations[0]
+            const liveLocation = state.locationAC
 
             const currentQuality = await fetchAirQuality(city.lat, city.lon, settingsState.units)
             //console.log('Quality fetched:', currentQuality)
