@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { reverseGeocode } from '../services/geocodingApi'
-import { setLocationA } from '../contexts/weatherActions'
+import { setLocationA,setLocationAC } from '../contexts/weatherActions'
 
 const FIVE_MINUTES = 5 * 60 * 1000
 
@@ -20,7 +20,8 @@ export function useGeoLocation(dispatch) {
             const locationName = await reverseGeocode(lat, lon)
 
             setLocationA(dispatch, locationName)
-            console.log(locationName)
+            setLocationAC(dispatch, {lat: lat, lon: lon})
+            console.log(locationName,lat,lon)
         }
 
         updateLocation()

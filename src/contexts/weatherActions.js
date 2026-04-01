@@ -11,6 +11,13 @@ export function setLocationA(dispatch, location) {
     })
 }
 
+export function setLocationAC(dispatch, coords) {
+    dispatch({
+        type: WEATHER.SET_LOCATION_AC,
+        payload: coords
+    })
+}
+
 export function setLocationB(dispatch, location) {
     dispatch({ 
         type: WEATHER.SET_LOCATION_B, 
