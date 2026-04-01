@@ -308,7 +308,152 @@
   border-radius: 10px;
 }
 
+/* ─── Hourly Forecasts scrollable ─────────────────────────────────────────── */
 
+/* ─── Outer Wrapper ──────────────────────────────────────── */
+.hourly-forecast {
+    margin: 1rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ─── Scrolling Row ──────────────────────────────────────── */
+.hourly-scroll-row {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.hourly-scroll-row::-webkit-scrollbar {
+    height: 0.25rem;
+}
+.hourly-scroll-row::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* ─── Each Section (Origin / Divider / Destination) ─────── */
+.hourly-section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+}
+
+/* ─── The Row Of Cards Inside A Section ─────────────────── */
+.hourly-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.25rem;
+}
+
+/* ─── Individual Hour Card ───────────────────────────────── */
+.hourly-cards > div {
+    flex: 0 0 auto;
+    width: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.75rem 0.25rem;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+}
+
+.hourly-cards > div:hover {
+    background: rgba(255, 255, 255, 0.13);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Text Inside Hour Cards ─────────────────────────────── */
+.hourly-cards > div > p {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* ─── Image Inside Hour Cards ────────────────────────────── */
+.hourly-cards > div > img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+}
+
+/* ─── Location Label Bar ─────────────────────────────────── */
+.hourly-label {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    text-align: left;
+    padding: 0.3rem 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+}
+
+/* ─── Divider Section ────────────────────────────────────── */
+.hourly-divider-section {
+    justify-content: space-between;
+    padding: 0 0.5rem;
+}
+
+.hourly-divider-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 0.25rem;
+    padding: 0.5rem 0rem;
+}
+
+.divider-icon {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.divider-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin: 0;
+}
+
+.divider-time {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin: 0;
+}
+
+/* ─── Arrow Label Under Divider ──────────────────────────── */
+.hourly-label-divider {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    border-color: transparent;
+}
 
 @media (min-width: 769px) {
     .location-overlay {
@@ -319,22 +464,31 @@
         padding-right: 40px;
     }
 
-    
-
-    .hourly-forecast > div,
     .daily-forecast > div > * {
         width: 90px;
         padding: 12px 6px;
     }
 
-    .hourly-forecast > div > img,
     .daily-forecast > div > * > img {
         width: 36px;
         height: 36px;
     }
 
-    .hourly-forecast > div > p,
     .daily-forecast > div > * > * {
+        font-size: 13px;
+    }
+
+    .hourly-cards > div {
+        width: 90px;
+        padding: 12px 6px;
+    }
+
+    .hourly-cards > div > img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hourly-cards > div > p {
         font-size: 13px;
     }
 }

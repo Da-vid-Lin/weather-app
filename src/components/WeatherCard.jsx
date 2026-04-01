@@ -26,7 +26,7 @@ export default function WeatherCard({ weatherData, weatherQuality, locationName,
                 <hr className="divider" />
                 <CyclingAdvice weatherData={weatherData} weatherQuality={weatherQuality}/>
                 <hr className="divider" />
-                <div className="daily-forecast">
+                <div className="hourly-forecast">
                     <HourlyForecastCard hourlyData={hourlyData} hourlyLocationData={hourlyLocationData} 
                     routeData={routeData}/>
                 </div>

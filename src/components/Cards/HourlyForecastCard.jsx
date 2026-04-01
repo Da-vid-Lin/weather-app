@@ -14,25 +14,23 @@ export default function HourlyForecastCard({ hourlyData, hourlyLocationData, rou
     const tempUnit = state.units === 'metric' ? '°C' : '°F'
     const commuteHours = Math.ceil(routeData.duration / 60)
 
-    var hoursData = []
+    var originData = []
+    var dividerData = []
+    var destiData = []
 
     hourlyData.forEach((hour, index) => {
         if (index === commuteHours){
-            hoursData.push(
-                <div key={`D${index}`} className="hourly-divider">
-                    <div className="divider-line" />
-                    <div className="divider-pill">
-                        <p className="divider-name">{locationAName}</p>
-                        <p className="divider-time">{formatDuration(routeData.duration)} </p>
-                        <p className="divider-name">{locationBName}</p>
-                    </div>
-                    <div className="divider-line" />
+            dividerData.push(
+                <div key={`D${index}`} className="hourly-divider-content">
+                    <p className="divider-icon">📍</p>
+                    <p className="divider-label">Location Change</p>
+                    <p className="divider-time">{formatDuration(routeData.duration)} Cycle Time</p>
                 </div>
             )
         }
 
         if (index < commuteHours){
-            hoursData.push(
+            originData.push(
                 <div key={`A${index}`}>
                     <p>{formatTime(hourlyLocationData[index].time)}</p>
                     <img src={`https://openweathermap.org/img/wn/${hourlyLocationData[index].icon}.png`} />
@@ -43,7 +41,7 @@ export default function HourlyForecastCard({ hourlyData, hourlyLocationData, rou
         }
 
         else {
-            hoursData.push(
+            destiData.push(
                 <div key={`B${index}`}>
                     <p>{formatTime(hour.time)}</p>
                     <img src={`https://openweathermap.org/img/wn/${hour.icon}.png`} />
@@ -56,8 +54,33 @@ export default function HourlyForecastCard({ hourlyData, hourlyLocationData, rou
     })
 
     return (
-        <div className="hourly-forecast">
-            {hoursData}
+    <div className="hourly-forecast">
+
+        <div className="hourly-scroll-row">
+
+            <div className="hourly-section">
+                <div className="hourly-cards">
+                    {originData}
+                </div>
+                <div className="hourly-label">{locationAName}</div>
+            </div>
+
+            <div className="hourly-section hourly-divider-section">
+                <div className="hourly-divider-content">
+                    {dividerData}
+                </div>
+                <div className="hourly-label hourly-label-divider">→</div>
+            </div>
+
+            <div className="hourly-section">
+                <div className="hourly-cards">
+                    {destiData}
+                </div>
+                <div className="hourly-label">{locationBName}</div>
+            </div>
+
         </div>
-    )
+
+    </div>
+)
 }
