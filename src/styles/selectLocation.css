@@ -12,7 +12,8 @@
 
 /* Main phone-like container */
 .mobile-container {
-	background-color: var(--bg);
+	background: var(--bg-gradient), var(--bg);
+    background-size: cover;
 	width: 320px;
 	height: 650px;
 	border-radius: 40px;

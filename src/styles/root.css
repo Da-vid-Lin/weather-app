@@ -6,6 +6,13 @@
     --bg: #9bc1e7;
     --border: #98b7d7;
     --nav-glass: rgba(240, 244, 248, 0.45);
+    --bg-gradient: linear-gradient(
+        to bottom,
+        rgba(4, 163, 255, 0.55) 0%,
+        rgba(64, 128, 255, 0.15) 35%,
+        rgba(36, 109, 255, 0.25) 60%,
+        rgba(17, 96, 253, 0.72) 100%
+    );
 	--code-bg: #e9f0f7; 
     --accent: #aa3bff;
 	--accent-bg: rgba(170, 59, 255, 0.1);
@@ -39,6 +46,13 @@
     --bg: #16171d;
     --border: #2e303a;
     --nav-glass: rgba(0, 0, 0, 0.3);
+    --bg-gradient: linear-gradient(
+        to bottom,
+        rgba(6, 8, 12, 0.55) 0%,
+        rgba(6, 8, 12, 0.15) 35%,
+        rgba(6, 8, 12, 0.25) 60%,
+        rgba(6, 8, 12, 0.72) 100%
+    );
     --code-bg: #1f2028;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);

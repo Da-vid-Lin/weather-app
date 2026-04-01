@@ -11,7 +11,8 @@
 
 /* Base phone container */
 .search-page-layout {
-	background-color: var(--bg);
+	background: var(--bg-gradient), var(--bg);
+    background-size: cover;
 	width: 20rem;
 	height: 40.625rem;
 	border-radius: 2.5rem;
