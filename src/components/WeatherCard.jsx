@@ -9,9 +9,9 @@ import HourlyForecastCard from './Cards/HourlyForecastCard'
 import DailyForecastCard from './Cards/DailyForecastCard'
 
 export default function WeatherCard({ weatherData, weatherQuality, locationName, 
-    hourlyData, hourlyLocationData, routeData, dailyData, toggleButton }) {
+    hourlyData, hourlyLocationData, routeData, dailyData, toggleButton, showingLive }) {
     if (!weatherData || !weatherQuality || !locationName || !hourlyData || !dailyData
-        || !hourlyLocationData || !routeData
+        || !hourlyLocationData || !routeData || !toggleButton || !showingLive
     ) {
         return <div className="location-card">Loading...</div>
     }
@@ -21,7 +21,7 @@ export default function WeatherCard({ weatherData, weatherQuality, locationName,
             <div className="location-card-bg" />
 
             <div className="location-overlay">
-                <OverviewCard weatherData={weatherData} locationName={locationName} />
+                <OverviewCard weatherData={weatherData} locationName={locationName} showingLive={showingLive}/>
                 {toggleButton}
                 <hr className="divider" />
                 <CyclingAdvice weatherData={weatherData} weatherQuality={weatherQuality}/>

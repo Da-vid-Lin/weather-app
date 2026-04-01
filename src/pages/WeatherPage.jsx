@@ -79,10 +79,10 @@ export default function WeatherPage() {
         <div>
             <WeatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName} 
             hourlyData={currentHourly} hourlyLocationData={currentHourly2} 
-            routeData={currentRoute} dailyData={currentDaily}
+            routeData={currentRoute} dailyData={currentDaily} showingLive={showingLive}
             toggleButton={
                 <button className="location-toggle-btn" onClick={() => setShowingLive(prev => !prev)}>
-                    {showingLive ? `Show ${state.locationB} ↓` : `Show ${state.locationA} ↑`}
+                    {showingLive ? `Show Destination Weather ↓` : `Show Origin Weather ↑`}
                 </button>
             }/>
         </div>
