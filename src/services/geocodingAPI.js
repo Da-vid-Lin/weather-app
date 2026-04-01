@@ -36,10 +36,14 @@ export async function reverseGeocode(lat, lon) {
         },
     })
 
-  const results = response.data
-  const firstResult = results[0]
+    const results = response.data
+    const firstResult = results[0]
 
-  if (!firstResult) {return 'Unknown Location'}
+    if (!firstResult) {return 'Unknown Location'}
 
-  return firstResult.name
+    // Returns a more accurate name
+    const response1 = await axios.get(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+    return response1.data.address.suburb || response.data.address.town || 'Unknown Location'
+
+    //return firstResult.name
 }
