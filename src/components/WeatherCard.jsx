@@ -8,8 +8,11 @@ import CyclingAdvice from './cards/CyclingAdviceCard'
 import HourlyForecastCard from './Cards/HourlyForecastCard'
 import DailyForecastCard from './Cards/DailyForecastCard'
 
-export default function WeatherCard({ weatherData, weatherQuality, locationName, hourlyData, dailyData }) {
-    if (!weatherData || !weatherQuality || !locationName || !hourlyData || !dailyData) {
+export default function WeatherCard({ weatherData, weatherQuality, locationName, 
+    hourlyData, hourlyLocationData, routeData, dailyData }) {
+    if (!weatherData || !weatherQuality || !locationName || !hourlyData || !dailyData
+        || !hourlyLocationData || !routeData
+    ) {
         return <div className="location-card">Loading...</div>
     }
 
@@ -23,7 +26,8 @@ export default function WeatherCard({ weatherData, weatherQuality, locationName,
                 <CyclingAdvice weatherData={weatherData} weatherQuality={weatherQuality}/>
                 <span>---------------------------------------</span>
                 <div className="daily-forecast">
-                    <HourlyForecastCard hourlyData={hourlyData}/>
+                    <HourlyForecastCard hourlyData={hourlyData} hourlyLocationData={hourlyLocationData} 
+                    routeData={routeData}/>
                 </div>
                <div className="daily-forecast">
                     <DailyForecastCard dailyData={dailyData}/>

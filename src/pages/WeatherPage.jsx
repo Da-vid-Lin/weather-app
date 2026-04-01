@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { fetchCurrentWeather } from '../services/weatherApi'
 import { fetchAirQuality } from '../services/weatherApi'
 import { searchCity } from '../services/geocodingApi'
+import { fetchRouteData } from '../services/routingApi'
 import { useWeather } from '../contexts/weatherContext'
+import { useSettings } from '../contexts/settingsContext'
 import { fetchHourlyForecast } from '../services/weatherApi'
 import { fetchDailyForecast } from '../services/weatherApi'
 import { useGeoLocation } from '../hooks/useGeoLocation'
@@ -11,10 +13,13 @@ import { Navigate } from 'react-router-dom'
 
 export default function WeatherPage() {
     const { state, dispatch } = useWeather()
+    const { state: settingsState, dispatch: settingsDispatch } = useSettings();
     const [currentWeather, setCurrentWeather] = useState(null)
     const [currentQuality, setCurrentQuality] = useState(null)
     const [currentName, setCurrentName] = useState(null)
     const [currentHourly, setCurrentHourly] = useState(null)
+    const [currentHourly2, setCurrentHourly2] = useState(null)
+    const [currentRoute, setCurrentRoute] = useState(null)
     const [currentDaily, setCurrentDaily] = useState(null)
 
     // Gets live location every 5 minutes
@@ -22,6 +27,7 @@ export default function WeatherPage() {
 
     // Using api to get cords and weather info
     useEffect(() => {
+        if (!state.locationA) { return }
         if (!state.locationB) { return }
 
         async function loadWeather() {
@@ -29,27 +35,36 @@ export default function WeatherPage() {
             //console.log('Cities found:', cities)
 
             const city = cities[0]
-            const currentWeather = await fetchCurrentWeather(city.lat, city.lon, state.units)
+            const currentWeather = await fetchCurrentWeather(city.lat, city.lon, settingsState.units)
             //console.log('Weather fetched:', currentWeather)
 
-            const currentQuality = await fetchAirQuality(city.lat, city.lon, state.units)
+            const liveLocations = await searchCity(state.locationA)
+            const liveLocation = liveLocations[0]
+
+            const currentQuality = await fetchAirQuality(city.lat, city.lon, settingsState.units)
             //console.log('Quality fetched:', currentQuality)
 
-            const currentHourly = await fetchHourlyForecast(city.lat, city.lon, state.units)
+            const currentHourly = await fetchHourlyForecast(city.lat, city.lon, settingsState.units)
+            const currentHourly2 = await fetchHourlyForecast(liveLocation.lat, liveLocation.lon, settingsState.units)
             //console.log('Hourly fetched:', currentHourly)
 
-            const currentDaily = await fetchDailyForecast(city.lat, city.lon, state.units)
+            const currentRoute = await fetchRouteData(liveLocation.lat, liveLocation.lon, city.lat, city.lon)
+            //console.log('Route fetched:', currentRoute)
+
+            const currentDaily = await fetchDailyForecast(city.lat, city.lon, settingsState.units)
             //console.log('Daily fetched:', currentDaily)
 
             setCurrentWeather(currentWeather)
             setCurrentQuality(currentQuality)
             setCurrentName(city.name)
             setCurrentHourly(currentHourly)
+            setCurrentHourly2(currentHourly2)
+            setCurrentRoute(currentRoute)
             setCurrentDaily(currentDaily)
         }
 
         loadWeather()
-    }, [state.locationB])
+    }, [state.locationB,state.locationA])
 
     // If location B not selected send user back to select
     if (!state.locationB){
@@ -59,7 +74,9 @@ export default function WeatherPage() {
     // Displaying the weather information
     return (
         <div>
-            <WeatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName} hourlyData={currentHourly} dailyData={currentDaily}/>
+            <WeatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName} 
+            hourlyData={currentHourly} hourlyLocationData={currentHourly2} 
+            routeData={currentRoute} dailyData={currentDaily}/>
         </div>
     )
 }
