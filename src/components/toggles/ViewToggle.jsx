@@ -7,10 +7,10 @@ export default function ViewToggle({ currentTheme, toggleTheme }) {
     const { state, dispatch } = useSettings()
     const handleToggle = () => {
         toggleTheme()
-        const nextView = currentTheme === 'dark' ? 'light' : 'dark'
+        const nextView = currentTheme === 'light' ? 'light' : 'dark'
         setView(dispatch, nextView)
     }
-    const displayText = currentTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    const displayText = currentTheme === 'light' ? 'Light Mode' : 'Dark Mode';
 
     return (
         <div className="button-group">
