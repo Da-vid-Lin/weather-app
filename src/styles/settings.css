@@ -56,8 +56,9 @@
 }
 
 .button-main:hover {
-    background: rgba(255, 255, 255, 0.35);
-    transform: translateY(-1px);
+    background: var(--glass-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 /* Button label text */
