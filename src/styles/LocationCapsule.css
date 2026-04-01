@@ -4,12 +4,32 @@
     box-sizing: border-box;
     color: var(--text-h);
 }
-
+ 
 .recent-capsule-text {
-    /* Aligns the text with the main cards */
-    margin-left: 55px;
     width: 100%;
     font-family: var(--sans);
     color: var(--text);
     font-weight: 500;
+}
+ 
+.capsule-icon-circle {
+    background-color: #e8e8e8;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+ 
+[data-theme="dark"] .capsule-icon-circle {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+ 
+.capsule-weather-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
