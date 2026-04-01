@@ -4,6 +4,7 @@ import { fetchCurrentWeather } from '../services/weatherApi'
 import { fetchAirQuality } from '../services/weatherApi'
 import { searchCity } from '../services/geocodingApi'
 import { useSettings } from '../contexts/settingsContext'
+import { fetchHourlyForecast } from '../services/weatherApi'
 import DisplayWeather from '../components/DisplayWeather'
 
 export default function HomePage() {
@@ -11,6 +12,7 @@ export default function HomePage() {
         const [currentWeather, setCurrentWeather] = useState(null)
         const [currentQuality, setCurrentQuality] = useState(null)
         const [currentName, setCurrentName] = useState(null)
+        const [currentHourly, setCurrentHourly] = useState(null)
 
     // Redirect to select page if no home location is set
     useEffect(() => {
@@ -27,9 +29,13 @@ export default function HomePage() {
             const currentQuality = await fetchAirQuality(city.lat, city.lon, state.units)
             //console.log('Quality fetched:', currentQuality)
 
+            const currentHourly = await fetchHourlyForecast(city.lat, city.lon, state.units)
+            //console.log('Hourly fetched:', currentHourly)
+
             setCurrentWeather(currentWeather)
             setCurrentQuality(currentQuality)
             setCurrentName(city.name)
+            setCurrentHourly(currentHourly)
         }
 
         loadWeather()
@@ -43,7 +49,7 @@ export default function HomePage() {
     // Displaying the weather information
     return (
         <div>
-            <DisplayWeather weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName}/>
+            <DisplayWeather weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName} hourlyData={currentHourly}/>
         </div>
     )
 }
