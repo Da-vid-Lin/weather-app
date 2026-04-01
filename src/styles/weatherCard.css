@@ -162,7 +162,7 @@
     border-radius: 20px;
 }
 
-/* Ensures glass effects don't blind the user in dark mode */
+/* Ensures glass effects don't flash bang the user in dark mode */
 [data-theme="dark"] .glass, 
 [data-theme="dark"] .daily-forecast > div, 
 [data-theme="dark"] .daily-forecast > div > *, 
