@@ -7,17 +7,18 @@
     text-align: center;
     min-height: 100svh;
     padding: 56px 20px 40px;
-    background-image: none;
-    background-color: #242222;
+    background: var(--bg-gradient), var(--bg);
+    background-size: cover;
     font-family: 'Outfit', sans-serif;
     gap: 16px;
+    transition: background-color 0.3s ease;
 }
 
 /* Settings page title */
 .main-settings h1 {
     font-size: 32px;
-    font-weight: 400;
-    color: #ffffff;
+    font-weight: 500;
+    color: var(--text-h);
     margin: 0 0 8px;
     letter-spacing: -0.5px;
 }
@@ -34,8 +35,8 @@
 /* Toggle section label e.g. "Measurement Units" */
 .button-title {
     font-size: 12px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    color: var(--text);
     letter-spacing: 0.6px;
     text-transform: uppercase;
     margin: 0;
@@ -48,22 +49,32 @@
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     border-radius: 20px;
     padding: 18px 20px;
     text-align: center;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .button-main {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .button-main:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
 }
 
 /* Button label text */
 .button-text {
     font-size: 16px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-h);
     font-family: 'Outfit', sans-serif;
+}
+
+[data-theme="dark"] .button-text {
+    color: #ffffff;
 }

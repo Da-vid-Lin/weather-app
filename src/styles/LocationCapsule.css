@@ -2,10 +2,14 @@
     margin-bottom: 15px;
     min-height: 64px; 
     box-sizing: border-box;
+    color: var(--text-h);
 }
 
 .recent-capsule-text {
     /* Aligns the text with the main cards */
     margin-left: 55px;
     width: 100%;
+    font-family: var(--sans);
+    color: var(--text);
+    font-weight: 500;
 }

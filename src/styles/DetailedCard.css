@@ -21,14 +21,14 @@
 .stat-sub-label {
     font-size: 12px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text);
     letter-spacing: 0.5px;
 }
 
 .stat-sub-value {
     font-size: 14px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-h);
 }
 
 
@@ -38,7 +38,7 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--border);
     background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
@@ -46,11 +46,16 @@
     margin: 0 auto;
 }
 
+[data-theme="dark"] .compass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .compass-needle {
     position: absolute;
     width: 3px;
     height: 40%;
-    background: linear-gradient(to bottom, #ff6b35 50%, rgba(255, 255, 255, 0.3) 50%);
+    background: linear-gradient(to bottom, #ff6b35 50%, var(--border) 50%);
     border-radius: 2px;
     top: 10%;
     left: calc(50% - 1.5px);
@@ -62,6 +67,6 @@
     position: absolute;
     bottom: -20px;
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text);
     white-space: nowrap;
 }
