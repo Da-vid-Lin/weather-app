@@ -41,15 +41,17 @@ export default function WeatherPage() {
             //console.log('Weather fetched:', currentWeather)
 
             const liveLocation = state.locationAC
+            const dest = await searchCity(state.locationB)
+            const destLocation = dest[0]
 
             const currentQuality = await fetchAirQuality(city.lat, city.lon, settingsState.units)
             //console.log('Quality fetched:', currentQuality)
 
-            const currentHourly = await fetchHourlyForecast(city.lat, city.lon, settingsState.units)
+            const currentHourly = await fetchHourlyForecast(destLocation.lat, destLocation.lon, settingsState.units)
             const currentHourly2 = await fetchHourlyForecast(liveLocation.lat, liveLocation.lon, settingsState.units)
             //console.log('Hourly fetched:', currentHourly)
 
-            const currentRoute = await fetchRouteData(liveLocation.lat, liveLocation.lon, city.lat, city.lon)
+            const currentRoute = await fetchRouteData(liveLocation.lat, liveLocation.lon, destLocation.lat, destLocation.lon)
             //console.log('Route fetched:', currentRoute)
 
             const currentDaily = await fetchDailyForecast(city.lat, city.lon, settingsState.units)
