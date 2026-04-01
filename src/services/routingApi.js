@@ -3,7 +3,7 @@ import axios from 'axios'
 const URL = 'https://api.openrouteservice.org'
 const KEY = import.meta.env.VITE_ORS_API_KEY
 
-export async function fetchRouteData(lon1,lat1,lon2,lat2) {
+export async function fetchRouteData(lat1, lon1, lat2, lon2) {
     const response = await axios.get(`${URL}/v2/directions/cycling-regular`, {
         params: {
             start: `${lon1},${lat1}`,
