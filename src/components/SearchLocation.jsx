@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { searchCity } from '../services/geocodingApi';
 import { useWeather } from '../contexts/weatherContext';
-import { setLocationB } from '../contexts/weatherActions';
+import { setLocationA, setLocationB } from '../contexts/weatherActions';
 import { setHome } from '../contexts/settingsActions';
 import '../styles/searchLocation.css';
 import { useSettings } from '../contexts/settingsContext';

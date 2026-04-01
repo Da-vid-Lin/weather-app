@@ -1,9 +1,9 @@
 import SettingsCard from '../components/SettingsCard';
 
-export default function SettingsPage() {
+export default function SettingsPage({ currentTheme, toggleTheme }) {
     return (
         <div>
-            <SettingsCard />
+            <SettingsCard currentTheme={currentTheme} toggleTheme={toggleTheme}/>
         </div>
     );
 }

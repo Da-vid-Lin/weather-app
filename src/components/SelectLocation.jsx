@@ -17,7 +17,7 @@ export default function SelectLocation() {
 			<div className="mobile-container">
 				<div className="list-section">
 					<h2 className="section-title">Home</h2>
-					<div className="action-card" onClick={() => navigate('/')}>
+					<div className="action-card" onClick={() => { if (settingsState.home) navigate('/'); }}>
 						{/** stopPropagation so that it doesnt climb to action card div */}
 						<Link to="/search/home" className="icon-circle" onClick={(e) => e.stopPropagation()}>
 							<img src={Plus} alt="Set Home" />

@@ -2,7 +2,7 @@ import { SettingsProvider } from './contexts/settingsContext.jsx'
 import { WeatherProvider } from './contexts/weatherContext.jsx'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import './styles/root.css'
 import App from './App.jsx'
 
 const img = new Image()

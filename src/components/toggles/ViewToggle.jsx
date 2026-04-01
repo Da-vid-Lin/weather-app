@@ -3,24 +3,19 @@
 import { useSettings } from '../../contexts/settingsContext'
 import { setView } from '../../contexts/settingsActions'
 
-export default function ViewToggle() {
+export default function ViewToggle({ currentTheme, toggleTheme }) {
     const { state, dispatch } = useSettings()
-
-    let displayText = ''
-    let nextView = ''
-
-    if (state.view === 'dark') {
-        displayText = 'Dark Mode'
-        nextView = 'light'
-    } else if (state.view === 'light') {
-        displayText = 'Light Mode'
-        nextView = 'dark'
+    const handleToggle = () => {
+        toggleTheme()
+        const nextView = currentTheme === 'dark' ? 'light' : 'dark'
+        setView(dispatch, nextView)
     }
+    const displayText = currentTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
 
     return (
         <div className="button-group">
             <h3 className="button-title">App Theme</h3>
-            <button className="button-main" onClick={() => setView(dispatch, nextView)}>
+            <button className="button-main" onClick={handleToggle}>
                 <span className="button-text">{displayText}</span>
             </button>
         </div>
