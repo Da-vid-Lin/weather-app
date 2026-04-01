@@ -21,6 +21,7 @@ export default function WeatherPage() {
     const [currentHourly2, setCurrentHourly2] = useState(null)
     const [currentRoute, setCurrentRoute] = useState(null)
     const [currentDaily, setCurrentDaily] = useState(null)
+    const [showingLive, setShowingLive] = useState(true)
 
     // Gets live location every 5 minutes
     useGeoLocation(dispatch)
@@ -31,7 +32,7 @@ export default function WeatherPage() {
         if (!state.locationB) { return }
 
         async function loadWeather() {
-            const cities = await searchCity(state.locationB)
+            const cities = await searchCity(showingLive ? state.locationA : state.locationB)
             //console.log('Cities found:', cities)
 
             const city = cities[0]
@@ -64,7 +65,7 @@ export default function WeatherPage() {
         }
 
         loadWeather()
-    }, [state.locationB,state.locationA])
+    }, [state.locationB, state.locationA, showingLive])
 
     // If location B not selected send user back to select
     if (!state.locationB){
@@ -76,7 +77,12 @@ export default function WeatherPage() {
         <div>
             <WeatherCard weatherData={currentWeather} weatherQuality={currentQuality} locationName={currentName} 
             hourlyData={currentHourly} hourlyLocationData={currentHourly2} 
-            routeData={currentRoute} dailyData={currentDaily}/>
+            routeData={currentRoute} dailyData={currentDaily}
+            toggleButton={
+                <button className="location-toggle-btn" onClick={() => setShowingLive(prev => !prev)}>
+                    {showingLive ? `Show ${state.locationB} ↓` : `Show ${state.locationA} ↑`}
+                </button>
+            }/>
         </div>
     )
 }
