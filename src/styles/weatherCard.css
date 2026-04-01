@@ -342,7 +342,7 @@
 .divider {
     width: 100%;
     border: none;
-    border-top: 2px dashed var(--border); 
+    border-top: 2px solid var(--border); 
     opacity: 0.6;
     margin: 24px 0; 
 }
