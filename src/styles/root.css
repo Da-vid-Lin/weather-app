@@ -87,7 +87,7 @@ body {
  
 .page-container {
 	width: 100%;
-	max-width: 390px;
+	max-width: 100%;
 	min-height: 100svh;
 	margin: 0 auto;
 	padding: 56px 20px 100px;
@@ -147,4 +147,101 @@ code {
 	line-height: 135%;
 	padding: 4px 8px;
 	background: var(--code-bg);
+}
+
+@media (min-width: 769px) {
+    #root {
+        width: 100%;
+        max-width: 100%;
+        border: none;
+    }
+
+    body {
+        background: var(--bg-gradient), var(--bg);
+        background-attachment: fixed;
+    }
+
+    .page-container {
+        max-width: 800px;
+        min-height: unset;
+        padding-top: 90px;
+        padding-left: 40px;
+        padding-right: 40px;
+        background: none;
+    }
+
+    .location-overlay {
+        padding-top: 90px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .settings-page {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .select-page {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Bigger stat tiles on desktop */
+    .stat-tile {
+        padding: 24px 28px;
+    }
+
+    .stat-value {
+        font-size: 32px;
+    }
+
+    .stat-label {
+        font-size: 14px;
+    }
+
+    /* Weather hero bigger on desktop */
+    .weather-temp {
+        font-size: 140px;
+    }
+
+    .weather-condition {
+        font-size: 28px;
+    }
+
+    .weather-location {
+        font-size: 22px;
+    }
+
+    /* Fix forecast cards on desktop */
+    .daily-forecast > div {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        overflow-x: unset;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .daily-forecast > div > * {
+        width: 100%;
+    }
+
+    /* Bigger settings buttons */
+    .button-main {
+        padding: 22px 24px;
+    }
+
+    .button-text {
+        font-size: 18px;
+    }
+
+    /* Bigger action cards on select */
+    .action-card {
+        padding: 16px 20px;
+    }
+
+    .card-text {
+        font-size: 18px;
+    }
 }
