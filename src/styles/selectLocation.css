@@ -4,21 +4,22 @@
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	background-color: #121212;
+	background-color: var(--bg);
 	/* Dark background behind the app */
 	font-family: 'Outfit', sans-serif;
+    transition: background-color 0.3s ease;
 }
 
 /* Main phone-like container */
 .mobile-container {
-	background-color: #242222;
+	background-color: var(--bg);
 	width: 320px;
 	height: 650px;
 	border-radius: 40px;
 	padding: 40px 24px;
 	box-sizing: border-box;
-	color: #ffffff;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+	color: var(--text-h);
+	box-shadow: var(--shadow);
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
@@ -26,8 +27,8 @@
 
 /* Search Button */
 .search-button {
-	background-color: #333131;
-	border: none;
+	background-color: rgba(255, 255, 255, 0.3);
+	border: 1px solid var(--border);
 	width: 70px;
 	height: 70px;
 	border-radius: 50%;
@@ -37,6 +38,11 @@
 	align-self: center;
 	margin-bottom: 20px;
 	cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .search-button {
+    background-color: #333131;
 }
 
 .search-button img {
@@ -56,26 +62,37 @@
 	font-weight: normal;
 	margin: 0;
 	padding-left: 5px;
-	color: #eaeaea;
+	color: var(--text);
 	padding-bottom: 14px;
+    text-transform: uppercase;
 }
 
 /* Reusable Action Cards (Pills) */
 .action-card {
-	background-color: #3a3b38;
-	border-radius: 30px;
+	background-color: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 30px;
 	padding: 12px 16px;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
 	/* Removes underline from React Router Links */
-	color: #ffffff;
+	color: var(--text-h);
 	cursor: pointer;
 	transition: background-color 0.2s ease;
 }
 
+[data-theme="dark"] .action-card {
+    background-color: #3a3b38;
+    color: #ffffff;
+    border: none;
+}
+
 .action-card:hover {
-	background-color: #454642;
+	background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
 }
 
 /* Plus Icon Circle */
@@ -100,7 +117,7 @@
 	flex: 1;
 	/* fills remaining space in the capsule */
 	text-decoration: none;
-	color: #ffffff;
+	color: var(--text-h);
 	text-align: left;
 }
 
@@ -136,17 +153,21 @@
 
 .location-name {
 	font-size: 15px;
+    font-weight: 600;
 }
 
 .weather-condition {
 	font-size: 13px;
-	color: #cccccc;
+	color: var(--text)c;
+    opacity: 0.8;
 }
 
 .temperature {
 	font-size: 22px;
 	display: flex;
 	align-items: flex-start;
+    font-weight: 600;
+    color: var(--text-h);
 }
 
 .degree-symbol {
