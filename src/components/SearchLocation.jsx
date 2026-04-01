@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { searchCity } from '../services/geocodingApi';
+import { searchCity } from '../services/geocodingAPI';
 import { useWeather } from '../contexts/weatherContext';
 import { setLocationA, setLocationB } from '../contexts/weatherActions';
 import { setHome } from '../contexts/settingsActions';
