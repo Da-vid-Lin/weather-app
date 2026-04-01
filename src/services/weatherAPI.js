@@ -19,9 +19,10 @@ export async function fetchCurrentWeather(lat, lon, units = 'metric') {
         data.rain?.['1h'] ?? 0,
         data.snow?.['1h'] ?? 0
     )
-
+    
     return {
         temp: data.main.temp,
+        feelsLike: data.main.feels_like,
         windSpeed: data.wind.speed,
         windDeg: data.wind.deg,
         windGust: data.wind.gust ?? 0,
@@ -73,9 +74,10 @@ export async function fetchDailyForecast(lat, lon, units = 'metric') {
     const data = response.data
 
     const daily = data.list.slice(0, 7).map(day => {
-        console.log(day.pop)
+        //console.log(day.pop)
         return {
             date: day.dt,
+            temp: day.temp.day,
             minTemp: day.temp.min,
             maxTemp: day.temp.max,
             icon: day.weather[0].icon,
