@@ -58,3 +58,19 @@ export function setRecentDestinations(dispatch, newDestination, recentDestinatio
 
 
 }
+
+export function addLog(dispatch, log, logList) {
+    logList.push(log)
+
+    dispatch({
+        type: SETTINGS.SET_LOGS,
+        payload: logList
+    })
+}
+
+export function setLogFlag(dispatch, value) {
+    dispatch({
+        type: SETTINGS.SET_LOG_FLAG,
+        payload: value
+    })
+}
