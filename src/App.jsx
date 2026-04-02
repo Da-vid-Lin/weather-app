@@ -7,6 +7,7 @@ import LocationPage from './pages/LocationPage'
 import WeatherPage from './pages/WeatherPage'
 import HomePage from './pages/HomePage'
 import SettingsPage from './pages/SettingsPage'
+import LogsPage from './pages/LogsPage'
 
 export default function App() {
     const [theme, setTheme] = useState(localStorage.getItem('app-theme') || 'light')
@@ -23,8 +24,9 @@ export default function App() {
                 <Route path="/select" element={<SelectPage />} />
                 <Route path="/search/:field" element={<LocationPage />} />
                 <Route path="/" element={<HomePage />} />
-                <Route path="/settings" element={<SettingsPage currentTheme={theme} toggleTheme={toggleTheme} />} />
                 <Route path="/weather" element={<WeatherPage />} />
+                <Route path="/settings" element={<SettingsPage currentTheme={theme} toggleTheme={toggleTheme} />} />
+                <Route path="/logs" element={<LogsPage />} />
             </Routes>
             <NavBar />
         </BrowserRouter>

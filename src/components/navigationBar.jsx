@@ -35,6 +35,10 @@ export default function NavBar() {
                 <span className="nav-icon">🏠</span>
                 <span className="nav-label">Home</span>
             </Link>
+            <Link to="/logs" className={`nav-item ${location.pathname === '/logs' ? 'nav-active' : ''}`}>
+                <span className="nav-icon">📄</span>
+                <span className="nav-label">Logs</span>
+            </Link>
             <Link to="/settings" className={`nav-item ${location.pathname === '/settings' ? 'nav-active' : ''}`}>
                 <span className="nav-icon">⚙️</span>
                 <span className="nav-label">Settings</span>
