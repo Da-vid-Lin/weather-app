@@ -1,3 +1,6 @@
+// Shows 12 most recent logs of journey with distance and duration
+// Includes a toggleable lifetime stats panel
+
 import { useState } from 'react'
 import { useSettings } from '../contexts/settingsContext'
 import { formatDuration } from '../utils/formatDuration'

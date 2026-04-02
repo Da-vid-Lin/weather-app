@@ -1,3 +1,4 @@
+// Layout for the settings page, contains toggles for units, info and darkmode
 import { useSettings } from '../contexts/settingsContext';
 import  UnitToggle  from './toggles/UnitToggle'
 import  DepthToggle  from './toggles/DepthToggle'

@@ -1,3 +1,6 @@
+// Shows weather on commute for live location and destination location
+// Fetches various weather metrics like air quality etc.
+
 import { useEffect, useState } from 'react'
 import { fetchCurrentWeather } from '../services/weatherAPI'
 import { fetchAirQuality } from '../services/weatherAPI'

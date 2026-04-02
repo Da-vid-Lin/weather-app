@@ -1,3 +1,5 @@
+// Display weather for user's saved home location
+// Redirects to select page if no home set
 import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { fetchCurrentWeather } from '../services/weatherAPI'

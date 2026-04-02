@@ -1,3 +1,6 @@
+// Defines all routes and renders the nav bar
+// Light and dark theme managed in local storage
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import NavBar from './components/NavigationBar'
