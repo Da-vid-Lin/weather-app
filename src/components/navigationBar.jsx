@@ -1,4 +1,4 @@
-// Bottom navigation bar with links to the four main pages
+// Bottom navigation bar with links to the five main pages
 
 import { Link, useLocation } from 'react-router-dom'
 import '../styles/navigationBar.css'
@@ -17,11 +17,13 @@ export default function NavBar() {
         weatherEndpoint = "/select"
     }
 
+    // Prevent navigation to home without a home location set
     let homeEndpoint = "/"
     if (!settingsState.home){
         homeEndpoint = "/select"
     }
     return (
+        // Each nav item directs to an endpoint based on user actions
         <nav className="navbar">
             <Link to="/select" className={`nav-item ${location.pathname === '/select' ? 'nav-active' : ''}`}>
                 <span className="nav-icon">📍</span>
