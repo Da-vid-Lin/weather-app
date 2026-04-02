@@ -1,12 +1,15 @@
+// Shows weather on commute for live location and destination location
+// Fetches various weather metrics like air quality etc.
+
 import { useEffect, useState } from 'react'
-import { fetchCurrentWeather } from '../services/weatherApi'
-import { fetchAirQuality } from '../services/weatherApi'
-import { searchCity } from '../services/geocodingApi'
-import { fetchRouteData } from '../services/routingApi'
+import { fetchCurrentWeather } from '../services/weatherAPI'
+import { fetchAirQuality } from '../services/weatherAPI'
+import { searchCity } from '../services/geocodingAPI'
+import { fetchRouteData } from '../services/routingAPI'
 import { useWeather } from '../contexts/weatherContext'
 import { useSettings } from '../contexts/settingsContext'
-import { fetchHourlyForecast } from '../services/weatherApi'
-import { fetchDailyForecast } from '../services/weatherApi'
+import { fetchHourlyForecast } from '../services/weatherAPI'
+import { fetchDailyForecast } from '../services/weatherAPI'
 import { useGeoLocation } from '../hooks/useGeoLocation'
 import WeatherCard from '../components/WeatherCard'
 import { Navigate } from 'react-router-dom'

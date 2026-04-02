@@ -1,3 +1,5 @@
+// Clickable capsules showing city name, weather icon and temperature
+
 import { useState, useEffect } from "react";
 import { setLocationB } from "../contexts/weatherActions";
 import { useWeather } from "../contexts/weatherContext";

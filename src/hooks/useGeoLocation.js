@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { reverseGeocode } from '../services/geocodingApi'
+import { reverseGeocode } from '../services/geocodingAPI'
 import { setLocationA,setLocationAC } from '../contexts/weatherActions'
 
 const FIVE_MINUTES = 5 * 60 * 1000

@@ -1,3 +1,5 @@
+// Converting city names to latitude and longitude and vise versa
+
 import axios from 'axios'
 
 const URL = 'https://api.openweathermap.org'

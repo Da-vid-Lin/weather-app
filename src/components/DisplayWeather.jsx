@@ -1,12 +1,13 @@
 // Card that displays a locations weather information
 import '../styles/weatherCard.css'
-import OverviewCard from './cards/OverviewCard'
-import StatsCard from './cards/StatsCard'
-import WindCard from './cards/WindCard'
-import AirQualityCard from './cards/AirQualityCard'
-import StaticHourlyForecastCard from './cards/StaticHourlyForecastCard'
+import OverviewCard from './Cards/OverviewCard'
+import StatsCard from './Cards/StatsCard'
+import WindCard from './Cards/WindCard'
+import AirQualityCard from './Cards/AirQualityCard'
+import StaticHourlyForecastCard from './Cards/StaticHourlyForecastCard'
 
 export default function DisplayWeather({ weatherData, weatherQuality, locationName, hourlyData }) {
+    // Wait for all data before rendering.
     if (!weatherData || !weatherQuality || !locationName) {
         return <div className="location-card">Loading...</div>
     }

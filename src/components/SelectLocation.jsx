@@ -1,3 +1,6 @@
+//The selection page allowing users to set their home and destination
+// Recent searches displayed as capsules
+
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/selectLocation.css';
