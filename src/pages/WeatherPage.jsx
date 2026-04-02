@@ -10,6 +10,7 @@ import { fetchDailyForecast } from '../services/weatherApi'
 import { useGeoLocation } from '../hooks/useGeoLocation'
 import WeatherCard from '../components/WeatherCard'
 import { Navigate } from 'react-router-dom'
+import { addLog, setLogFlag } from '../contexts/settingsActions'
 
 export default function WeatherPage() {
     const { state, dispatch } = useWeather()
@@ -64,6 +65,18 @@ export default function WeatherPage() {
             setCurrentHourly2(currentHourly2)
             setCurrentRoute(currentRoute)
             setCurrentDaily(currentDaily)
+
+            // Save the journey log once everytime destination is selected
+            if (settingsState.logFlag === true) {
+                addLog(settingsDispatch, {
+                    locationAName: state.locationA,
+                    locationBName: state.locationB,
+                    distance: currentRoute.distance,
+                    duration: currentRoute.duration
+                    }, [...settingsState.logs]    
+                )
+                setLogFlag(settingsDispatch, false)
+            }
         }
 
         loadWeather()

@@ -7,6 +7,7 @@ import { setHome } from '../contexts/settingsActions';
 import '../styles/searchLocation.css';
 import { useSettings } from '../contexts/settingsContext';
 import { setRecentDestinations } from '../contexts/settingsActions';
+import { setLogFlag } from '../contexts/settingsActions'
  
 export default function SearchLocation() {
 	const { dispatch } = useWeather();
@@ -103,6 +104,7 @@ export default function SearchLocation() {
 								setLocationB(dispatch, loc.name);
 								// We pass copy to prevent accidentally mutating the state  
 								setRecentDestinations(settingsDispatch, loc.name, [...settingsState.recentDestinations]);
+								setLogFlag(settingsDispatch, true)
 							}
 						}}
 					>
