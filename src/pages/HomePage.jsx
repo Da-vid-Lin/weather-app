@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
-import { fetchCurrentWeather } from '../services/weatherApi'
-import { fetchAirQuality } from '../services/weatherApi'
-import { searchCity } from '../services/geocodingApi'
+import { fetchCurrentWeather } from '../services/weatherAPI'
+import { fetchAirQuality } from '../services/weatherAPI'
+import { searchCity } from '../services/geocodingAPI'
 import { useSettings } from '../contexts/settingsContext'
-import { fetchHourlyForecast } from '../services/weatherApi'
+import { fetchHourlyForecast } from '../services/weatherAPI'
 import DisplayWeather from '../components/DisplayWeather'
 
 export default function HomePage() {
