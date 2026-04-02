@@ -1,0 +1,175 @@
+/* ─── Logs Page ──────────────────────────────────────────── */
+
+/* Main wrapper for the logs page */
+.logs-page {
+    gap: 16px;
+}
+
+/* Page title */
+.logs-page h1 {
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text-h);
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+}
+
+/* Empty state message */
+.logs-empty {
+    color: var(--text);
+    font-size: 15px;
+    opacity: 0.7;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* The scrollable list of log cards */
+.logs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Individual journey log card */
+.log-card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+/* Dark mode override for log cards */
+[data-theme="dark"] .log-card {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/* Hover effect for log cards */
+.log-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* The route row showing origin → destination */
+.log-route {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Each location name in the route */
+.log-location {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-h);
+}
+
+/* The arrow between locations */
+.log-arrow {
+    font-size: 16px;
+    color: var(--text);
+    opacity: 0.6;
+}
+
+/* The bottom row showing distance and duration */
+.log-details {
+    display: flex;
+    gap: 16px;
+}
+
+/* Individual stat inside the log card */
+.log-stat {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+/* ─── Lifetime Stats Toggle Button ───────────────────────── */
+
+.stats-toggle-btn {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-h);
+    font-family: 'Outfit', sans-serif;
+    margin-top: 8px;
+}
+
+[data-theme="dark"] .stats-toggle-btn {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── Lifetime Stats Panel ───────────────────────────────── */
+
+/* Grid of stat cards shown when lifetime stats are toggled on */
+.lifetime-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Individual stat card */
+.stats-card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.stats-card:first-child {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+[data-theme="dark"] .stats-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* The small label inside the stat card */
+.stats-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    opacity: 0.8;
+    letter-spacing: 0.8px;
+    text-transform: capitalize;
+}
+
+/* The big number inside the stat card */
+.stats-value {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-h);
+    letter-spacing: -0.5px;
+}
