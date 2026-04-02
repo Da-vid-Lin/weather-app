@@ -22,8 +22,9 @@ export default function HourlyForecastCard({ hourlyData, hourlyLocationData, rou
         if (index === commuteHours){
             dividerData.push(
                 <div key={`D${index}`} className="hourly-divider-content">
-                    <p className="divider-icon">📍</p>
-                    <p className="divider-label">Location Change</p>
+                    <p className="divider-icon">🧭</p>
+                    <p className="divider-label">Weather Change</p>
+                    <p className="divider-label">After</p>
                     <p className="divider-time">{formatDuration(routeData.duration)} Cycle Time</p>
                 </div>
             )
@@ -69,7 +70,7 @@ export default function HourlyForecastCard({ hourlyData, hourlyLocationData, rou
                 <div className="hourly-divider-content">
                     {dividerData}
                 </div>
-                <div className="hourly-label hourly-label-divider">→</div>
+                <div className="hourly-label-divider">→</div>
             </div>
 
             <div className="hourly-section">
