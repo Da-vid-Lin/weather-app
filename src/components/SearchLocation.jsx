@@ -7,7 +7,7 @@ import { setHome } from '../contexts/settingsActions';
 import '../styles/searchLocation.css';
 import { useSettings } from '../contexts/settingsContext';
 import { setRecentDestinations } from '../contexts/settingsActions';
- 
+
 export default function SearchLocation() {
 	const { dispatch } = useWeather();
 	const [query, setQuery] = useState('');
@@ -20,7 +20,7 @@ export default function SearchLocation() {
 		latMin: 51.28, latMax: 51.69,
 		lonMin: -0.51, lonMax: 0.33,
 	};
- 
+
 	const isInLondon = (lat, lon) => {
 		return (
 			lat >= BOUNDS.latMin && lat <= BOUNDS.latMax &&
@@ -28,7 +28,7 @@ export default function SearchLocation() {
 		);
 	};
  
- 
+	// Facilitate searching as the user types their query
 	useEffect(() => {
 		if (query.length == 0 || !query) return;
  
@@ -40,7 +40,7 @@ export default function SearchLocation() {
 				const allResults = await searchCity(queryTrimmed);
 				const londonResults = allResults.filter(loc => isInLondon(loc.lat, loc.lon));
  
- 
+				// Get rid of any duplicate locations returned by the API.
 				const uniqueLocations = [];
 				const seenNames = new Set();
  
@@ -73,7 +73,7 @@ export default function SearchLocation() {
 					&#8592;
 				</Link>
 			</div>
- 
+			{/** Prevent page reload */}
 			<form className="search-input-wrapper" onSubmit={(e) => e.preventDefault()}>
 				<input
 					type="text"
@@ -97,6 +97,8 @@ export default function SearchLocation() {
 						to={field === 'home' ? '/' : '/weather'}
 						className="result-item"
 						onClick={() => {
+							// If the user came here to set home then take them to homepage
+							// Otherwise set asdestination and update recent searches
 							if (field === 'home') {
 								setHome(settingsDispatch, loc.name);
 							} else {

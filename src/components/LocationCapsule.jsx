@@ -16,7 +16,7 @@ import cloudIcon from '../assets/weatherIcons/Cloud.png';
 import smokeIcon from '../assets/weatherIcons/Smoke.png';
 import tornadoIcon from '../assets/weatherIcons/Tornado.png';
 
-// The keys (dict.keys() is an exhaustive list) are what openWeatherAPI could return as its "Main" (check fetchCurrentWeather.json)
+// Exhaustive list of what openWeather API list could return as a condition
 const conditionToIcon = {
     "Rain": rainIcon,
     "Drizzle": rainIcon,
@@ -37,33 +37,38 @@ const conditionToIcon = {
 
 export default function LocationCapsule({ city }) {
     const { dispatch } = useWeather();
+    const { state } = useSettings();
     const [weatherIcon, setWeatherIcon] = useState(null);
-
+    const [temp, setTemp] = useState(null);
+ 
+    // Get weather icon and temperature whenever the city or unit changes.
     useEffect(() => {
-        async function loadWeatherIcon() {
+        async function loadWeatherData() {
             const cities = await searchCity(city);
             if (cities.length === 0) return;
-
+ 
             const firstCity = cities[0];
-            const weather = await fetchCurrentWeather(firstCity.lat, firstCity.lon);
+            const weather = await fetchCurrentWeather(firstCity.lat, firstCity.lon, state.units);
+ 
             let icon = conditionToIcon[weather.condition]
 
-            // Default to cloud icon if condition is not found
-            if (!icon) {
-                icon = cloudIcon
-            }
-
+            //Default to cloud if no icon found.
+            if (!icon) { icon = cloudIcon }
+ 
             setWeatherIcon(icon);
-            
+            setTemp(Math.round(weather.temp));
         }
  
-        loadWeatherIcon();
-    }, [city]);
-
+        loadWeatherData();
+    }, [city, state.units]);
+ 
+    const tempUnit = state.units === 'metric' ? '°C' : '°F';
+ 
     return (
         <Link 
             to="/weather"
             className="action-card recent-capsule" 
+            // Set city as destination so weather page can be displayed
             onClick={() => {
                 setLocationB(dispatch, city);
             }}
@@ -76,6 +81,11 @@ export default function LocationCapsule({ city }) {
             <div className="card-text recent-capsule-text">
                 {city}
             </div>
+            {temp !== null && (
+                <span className="capsule-temp">
+                    {temp}{tempUnit}
+                </span>
+            )}
         </Link>
     );
 }
