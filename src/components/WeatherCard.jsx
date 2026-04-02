@@ -4,7 +4,7 @@ import OverviewCard from './Cards/OverviewCard'
 import StatsCard from './Cards/StatsCard'
 import WindCard from './Cards/WindCard'
 import AirQualityCard from './Cards/AirQualityCard'
-import CyclingAdvice from './cards/CyclingAdviceCard'
+import CyclingAdvice from './Cards/CyclingAdviceCard'
 import HourlyForecastCard from './Cards/HourlyForecastCard'
 import DailyForecastCard from './Cards/DailyForecastCard'
 
