@@ -7,13 +7,20 @@ export default function LogsCard() {
     const { state } = useSettings()
     const [showStats, setShowStats] = useState(false)
 
+    const distUnit = state.units === 'metric' ? 'km' : 'miles'
+
     const recentLogs = state.logs.slice(0, 12)
 
     // Lifetime stats calculated from the full logs array
     const totalRides = state.logs.length
-    const totalDistance = state.logs.reduce((sum, log) => sum + parseFloat(log.distance), 0)
+
+    const totalDistanceKm = state.logs.reduce((sum, log) => sum + parseFloat(log.distance/1000), 0)
+    const avgDistanceKm = totalRides === 0 ? 0 : totalDistanceKm / totalRides
+    const totalDistance = distUnit === "km" ? totalDistanceKm : totalDistanceKm * 0.621371
+    const avgDistance = distUnit === "km" ? avgDistanceKm : avgDistanceKm * 0.621371
+
+
     const totalDuration = state.logs.reduce((sum, log) => sum + log.duration, 0)
-    const avgDistance = totalRides === 0 ? 0 : totalDistance / totalRides
     const avgDuration = totalRides === 0 ? 0 : totalDuration / totalRides
 
     return (
@@ -33,8 +40,8 @@ export default function LogsCard() {
                             <span className="log-location">{log.locationBName}</span>
                         </div>
                         <div className="log-details">
-                            <span className="log-stat">{log.distance} km</span>
-                            <span className="log-stat">{formatDuration(log.duration)}</span>
+                            <span className="log-stat">Distance: {distUnit === "km" ? (log.distance/1000).toFixed(2): (log.distance/1000 * 0.621371).toFixed(2)} {distUnit}</span>
+                            <span className="log-stat">Time: {formatDuration(log.duration)}</span>
                         </div>
                     </div>
                 ))}
@@ -54,7 +61,7 @@ export default function LogsCard() {
                     </div>
                     <div className="stats-card">
                         <span className="stats-label">Total Distance</span>
-                        <span className="stats-value">{totalDistance.toFixed(1)} km</span>
+                        <span className="stats-value">{totalDistance.toFixed(2)} {distUnit}</span>
                     </div>
                     <div className="stats-card">
                         <span className="stats-label">Total Time</span>
@@ -62,7 +69,7 @@ export default function LogsCard() {
                     </div>
                     <div className="stats-card">
                         <span className="stats-label">Avg Distance</span>
-                        <span className="stats-value">{avgDistance.toFixed(1)} km</span>
+                        <span className="stats-value">{avgDistance.toFixed(2)} {distUnit}</span>
                     </div>
                     <div className="stats-card">
                         <span className="stats-label">Avg Time</span>
